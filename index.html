@@ -1,318 +1,571 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Aujourd'hui — Dashboard</title>
+<title>Aujourd'hui — Life Dashboard</title>
+
 
 <style>
 
-:root {
-    --text: #37352F;
-    --muted: #787774;
-    --card: #F7F6F3;
-    --border: #E9E9E7;
-    --green: #6B8F71;
-    --blue: #5B8DEF;
-    --white: #FFFFFF;
-    --shadow: rgba(0,0,0,0.06);
-}
-
-
-@media (prefers-color-scheme: dark) {
 
 :root {
-    --text: #F7F6F3;
-    --muted: #9B9A97;
-    --card: #202020;
-    --border: #333333;
-    --green: #8FB996;
-    --blue: #7CA8FF;
-    --white: #191919;
-    --shadow: rgba(0,0,0,0.3);
+
+--text:#37352F;
+--muted:#787774;
+
+--card:#F7F6F3;
+--border:#E9E9E7;
+
+--green:#7A9E7E;
+--blue:#5B8DEF;
+--gold:#D4A72C;
+
+--shadow:
+rgba(0,0,0,0.04);
+
+}
+
+
+@media(prefers-color-scheme:dark){
+
+:root{
+
+--text:#F1F1EF;
+--muted:#9B9A97;
+
+--card:#202020;
+--border:#333333;
+
+--green:#94B49F;
+--blue:#7CA8FF;
+
+--shadow:
+rgba(0,0,0,.25);
+
 }
 
 }
 
 
-* {
-    box-sizing: border-box;
-}
 
+*{
 
-body {
-
-    margin:0;
-
-    min-height:100vh;
-
-    background:transparent;
-
-    font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-
-    color:var(--text);
+box-sizing:border-box;
 
 }
 
 
-.container {
 
-    width:100%;
-    max-width:520px;
+body{
 
-    margin:auto;
+margin:0;
 
-    padding:30px 20px 50px;
+background:transparent;
+
+font-family:
+
+Inter,
+-apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+sans-serif;
+
+
+color:var(--text);
 
 }
+
+
+
+.container{
+
+max-width:520px;
+
+margin:auto;
+
+padding:35px 20px 60px;
+
+}
+
 
 
 /* HEADER */
 
-.header {
 
-    margin-bottom:25px;
+.header{
 
-}
-
-
-.greeting {
-
-    font-size:32px;
-
-    font-weight:700;
-
-    letter-spacing:-1px;
+margin-bottom:30px;
 
 }
 
 
-.date {
+.title{
 
-    margin-top:5px;
+font-size:34px;
 
-    color:var(--muted);
+font-weight:750;
 
-    font-size:15px;
+letter-spacing:-1.5px;
+
+}
+
+
+
+.date{
+
+margin-top:8px;
+
+color:var(--muted);
+
+font-size:15px;
 
 }
 
 
-.quote {
 
-    margin-top:18px;
+.quote{
 
-    padding-left:15px;
+margin-top:20px;
 
-    border-left:3px solid var(--border);
+padding-left:16px;
 
-    color:var(--muted);
+border-left:
+3px solid var(--border);
 
-    font-size:14px;
+font-size:14px;
 
-    font-style:italic;
+color:var(--muted);
+
+font-style:italic;
+
+line-height:1.5;
 
 }
+
 
 
 /* CARDS */
 
-.card {
 
-    background:var(--card);
+.card{
 
-    border:1px solid var(--border);
+background:var(--card);
 
-    border-radius:18px;
+border:1px solid var(--border);
 
-    padding:20px;
+border-radius:22px;
 
-    margin-top:16px;
+padding:22px;
 
-    box-shadow:
-    0 8px 25px var(--shadow);
+margin-bottom:18px;
+
+
+box-shadow:
+0 10px 30px var(--shadow);
+
 
 }
 
 
-.card-title {
 
-    font-size:15px;
+.card-title{
 
-    font-weight:650;
+font-size:15px;
 
-    margin-bottom:16px;
+font-weight:700;
 
-}
-
-
-/* TASKS */
-
-
-.task {
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    padding:8px 0;
+margin-bottom:20px;
 
 }
 
-
-.task input {
-
-    width:18px;
-
-    height:18px;
-
-    accent-color:var(--green);
-
-}
-
-
-.task label {
-
-    font-size:15px;
-
-}
-
-
-.progress {
-
-    margin-top:18px;
-
-}
-
-
-.progress-info {
-
-    display:flex;
-
-    justify-content:space-between;
-
-    color:var(--muted);
-
-    font-size:13px;
-
-    margin-bottom:8px;
-
-}
-
-
-.progress-bar {
-
-    height:8px;
-
-    background:var(--border);
-
-    border-radius:50px;
-
-    overflow:hidden;
-
-}
-
-
-.progress-fill {
-
-    height:100%;
-
-    width:0%;
-
-    background:var(--green);
-
-    border-radius:50px;
-
-    transition:.4s ease;
-
-}
 
 
 /* ENERGY */
 
 
-.energy {
+.energy-box{
 
-    text-align:center;
+display:flex;
 
-}
+align-items:center;
 
+justify-content:center;
 
-.energy-value {
-
-    font-size:28px;
-
-    font-weight:700;
-
-}
-
-
-.energy-slider {
-
-    width:100%;
-
-    margin-top:15px;
-
-    accent-color:var(--green);
+flex-direction:column;
 
 }
 
 
 
-/* HABITS */
+.energy-circle{
+
+width:130px;
+
+height:130px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
 
 
-.habit {
+background:
 
-    display:flex;
+conic-gradient(
+var(--green) 70%,
+var(--border) 0
+);
 
-    justify-content:space-between;
 
-    align-items:center;
+transition:.5s;
 
-    margin:12px 0;
 
 }
 
 
-.dots {
 
-    display:flex;
+.energy-inner{
 
-    gap:5px;
+width:100px;
+
+height:100px;
+
+border-radius:50%;
+
+background:var(--card);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+flex-direction:column;
 
 }
 
 
-.dot {
 
-    width:10px;
+.energy-number{
 
-    height:10px;
+font-size:32px;
 
-    border-radius:50%;
-
-    background:var(--border);
+font-weight:750;
 
 }
 
 
-.dot.active {
 
-    background:var(--green);
+.energy-label{
+
+font-size:13px;
+
+color:var(--muted);
+
+}
+
+
+
+.energy-range{
+
+width:100%;
+
+margin-top:22px;
+
+accent-color:var(--green);
+
+}
+
+
+
+/* REMINDERS */
+
+
+.reminder{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:12px 0;
+
+border-bottom:
+1px solid var(--border);
+
+}
+
+
+
+.reminder:last-child{
+
+border-bottom:none;
+
+}
+
+
+
+.reminder-left{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+}
+
+
+
+.reminder input{
+
+width:18px;
+
+height:18px;
+
+accent-color:var(--green);
+
+}
+
+
+
+/* FOCUS */
+
+
+.focus-circle{
+
+width:170px;
+
+height:170px;
+
+margin:auto;
+
+
+border-radius:50%;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+background:
+
+conic-gradient(
+var(--blue) 0deg,
+var(--border) 0deg
+);
+
+
+}
+
+
+
+.focus-inner{
+
+width:135px;
+
+height:135px;
+
+background:var(--card);
+
+border-radius:50%;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:30px;
+
+font-weight:700;
+
+}
+
+
+
+.buttons{
+
+display:flex;
+
+gap:10px;
+
+justify-content:center;
+
+margin-top:22px;
+
+}
+
+
+
+button{
+
+border:none;
+
+border-radius:14px;
+
+padding:12px 18px;
+
+cursor:pointer;
+
+font-size:14px;
+
+}
+
+
+
+.primary{
+
+background:var(--blue);
+
+color:white;
+
+}
+
+
+
+.secondary{
+
+background:var(--border);
+
+color:var(--text);
+
+}
+
+
+
+/* SPHERE */
+
+
+.sphere-box{
+
+text-align:center;
+
+}
+
+
+
+.sphere{
+
+
+width:120px;
+
+height:120px;
+
+margin:10px auto 25px;
+
+
+border-radius:50%;
+
+
+background:
+
+radial-gradient(
+circle at 30% 30%,
+white,
+transparent 25%
+),
+
+linear-gradient(
+135deg,
+#B8D8BA,
+#7A9E7E
+);
+
+
+
+box-shadow:
+
+0 0 45px rgba(122,158,126,.35);
+
+
+animation:
+
+float 4s ease-in-out infinite;
+
+
+}
+
+
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+}
+
+
+
+.inspiration{
+
+font-size:15px;
+
+line-height:1.5;
+
+}
+
+
+
+.author{
+
+margin-top:10px;
+
+font-size:13px;
+
+color:var(--muted);
+
+}
+
+
+
+textarea{
+
+width:100%;
+
+height:120px;
+
+resize:none;
+
+border:none;
+
+outline:none;
+
+background:transparent;
+
+font-family:inherit;
+
+font-size:15px;
+
+color:var(--text);
 
 }
 
 
 </style>
+
 
 </head>
 
@@ -325,68 +578,20 @@ body {
 
 <div class="header">
 
-<div class="greeting">
+
+<div class="title">
+
 ☀️ Aujourd'hui
+
 </div>
 
 
 <div class="date" id="date">
+
 </div>
 
 
 <div class="quote" id="quote">
-</div>
-
-
-</div>
-
-
-<!-- PRIORITES -->
-
-
-<div class="card">
-
-
-<div class="card-title">
-🎯 Priorités
-</div>
-
-
-<div class="task">
-<input type="checkbox" class="taskCheck">
-<label>Priorité numéro 1</label>
-</div>
-
-
-<div class="task">
-<input type="checkbox" class="taskCheck">
-<label>Priorité numéro 2</label>
-</div>
-
-
-<div class="task">
-<input type="checkbox" class="taskCheck">
-<label>Priorité numéro 3</label>
-</div>
-
-
-<div class="progress">
-
-
-<div class="progress-info">
-
-<span>Progression</span>
-
-<span id="progressText">
-0%
-</span>
-
-</div>
-
-
-<div class="progress-bar">
-
-<div class="progress-fill" id="progressFill"></div>
 
 </div>
 
@@ -394,129 +599,185 @@ body {
 </div>
 
 
-</div>
+<!-- LA SUITE ARRIVE PARTIE 2 -->
+
 <!-- ENERGIE -->
 
+
 <div class="card">
 
+
 <div class="card-title">
+
 ⚡ Mon énergie
+
 </div>
 
 
-<div class="energy">
+<div class="energy-box">
 
-<div class="energy-value" id="energyValue">
-7 / 10
+
+<div class="energy-circle" id="energyCircle">
+
+
+<div class="energy-inner">
+
+
+<div class="energy-number" id="energyNumber">
+
+7
+
 </div>
 
 
-<input 
+<div class="energy-label">
+
+/ 10
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div 
+id="energyMessage"
+style="
+margin-top:15px;
+color:var(--muted);
+font-size:14px;
+">
+
+Bonne dynamique
+
+</div>
+
+
+<input
 type="range"
 min="1"
 max="10"
 value="7"
-class="energy-slider"
-id="energySlider">
+id="energyRange"
+class="energy-range"
+>
 
 
 </div>
 
+
 </div>
 
 
 
-<!-- HABITUDES -->
+<!-- RAPPELS -->
 
 
 <div class="card">
 
 
 <div class="card-title">
-🔥 Habitudes
+
+🌱 Petits rappels
+
 </div>
 
 
-<div class="habit">
+
+<div class="reminder">
+
+
+<div class="reminder-left">
+
+<input 
+type="checkbox"
+class="dailyReminder"
+data-name="Boire de l'eau"
+>
 
 <span>
-📚 Lecture
+💧 Boire de l'eau
 </span>
 
-<div class="dots">
-
-<span class="dot active"></span>
-<span class="dot active"></span>
-<span class="dot active"></span>
-<span class="dot"></span>
-<span class="dot"></span>
-
 </div>
+
 
 </div>
 
 
 
-<div class="habit">
+<div class="reminder">
+
+
+<div class="reminder-left">
+
+<input 
+type="checkbox"
+class="dailyReminder"
+data-name="Lire"
+>
 
 <span>
-🧘 Respiration
+📖 Lire quelques pages
 </span>
 
-<div class="dots">
-
-<span class="dot active"></span>
-<span class="dot active"></span>
-<span class="dot active"></span>
-<span class="dot active"></span>
-<span class="dot active"></span>
-
 </div>
+
 
 </div>
 
 
 
-<div class="habit">
+<div class="reminder">
+
+
+<div class="reminder-left">
+
+<input 
+type="checkbox"
+class="dailyReminder"
+data-name="Bouger"
+>
 
 <span>
-🏃 Mouvement
+🚶 Bouger un peu
 </span>
 
-<div class="dots">
-
-<span class="dot active"></span>
-<span class="dot active"></span>
-<span class="dot"></span>
-<span class="dot"></span>
-<span class="dot"></span>
-
 </div>
+
 
 </div>
 
 
 
-<div class="habit">
+<div class="reminder">
+
+
+<div class="reminder-left">
+
+<input 
+type="checkbox"
+class="dailyReminder"
+data-name="Habitudes"
+>
 
 <span>
-💧 Hydratation
+✍️ Remplir mes habitudes
 </span>
 
-<div class="dots">
-
-<span class="dot active"></span>
-<span class="dot active"></span>
-<span class="dot active"></span>
-<span class="dot"></span>
-<span class="dot"></span>
-
 </div>
+
 
 </div>
 
 
 </div>
+
+
 
 
 
@@ -527,40 +788,59 @@ id="energySlider">
 
 
 <div class="card-title">
+
 🧠 Focus
+
 </div>
 
 
-<div style="
-text-align:center;
-">
+<div class="focus-circle" id="focusCircle">
 
 
-<div id="focusTime"
-style="
-font-size:42px;
-font-weight:700;
-letter-spacing:-2px;
-">
+<div class="focus-inner" id="focusTime">
+
 25:00
+
 </div>
 
+
+</div>
+
+
+
+<div
+style="
+text-align:center;
+margin-top:15px;
+color:var(--muted);
+font-size:14px;
+">
+
+Session profonde
+
+</div>
+
+
+
+<div class="buttons">
 
 
 <button 
-id="focusButton"
-style="
-margin-top:18px;
-border:none;
-padding:12px 22px;
-border-radius:14px;
-background:var(--blue);
-color:white;
-font-size:15px;
-cursor:pointer;
-">
+class="primary"
+id="focusStart"
+>
 
-▶ Commencer
+▶ Démarrer
+
+</button>
+
+
+<button
+class="secondary"
+id="focusReset"
+>
+
+↺ Recommencer
 
 </button>
 
@@ -569,6 +849,8 @@ cursor:pointer;
 
 
 </div>
+
+
 
 
 
@@ -579,72 +861,103 @@ cursor:pointer;
 
 
 <div class="card-title">
-✍️ Une pensée
+
+✍️ Moment du jour
+
 </div>
+
 
 
 <textarea
 id="journal"
-placeholder="Comment s'est passée ta journée ?"
-style="
-width:100%;
-height:90px;
-resize:none;
-border:none;
-outline:none;
-background:transparent;
-font-family:inherit;
-font-size:15px;
-color:var(--text);
-">
-</textarea>
+placeholder="Une pensée, une victoire, une chose à retenir..."
+></textarea>
 
 
 </div>
 
 
 
-<!-- RESPIRATION PLACEHOLDER -->
+
+
+<!-- SPHERE -->
+
 
 
 <div class="card">
 
 
 <div class="card-title">
-🌿 Pause respiration
-</div>
 
-
-<div style="
-text-align:center;
-padding:20px;
-color:var(--muted);
-">
-
-L'orbe de respiration arrive dans la dernière partie...
+✨ Sphère de sagesse
 
 </div>
 
 
+
+<div class="sphere-box">
+
+
+<div class="sphere">
+
 </div>
 
 
+<div 
+class="inspiration"
+id="inspiration"
+>
+
+"La simplicité est la sophistication suprême."
+
+</div>
+
+
+<div 
+class="author"
+id="author"
+>
+
+— Léonard de Vinci
+
+</div>
+
+
+
+<button
+class="secondary"
+style="
+margin-top:20px;
+"
+id="newQuote"
+>
+
+Nouvelle inspiration
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+<!-- JAVASCRIPT ARRIVE PARTIE 3 -->
 
 <script>
 
 
 // DATE
 
-const dateElement =
+
+const date =
 document.getElementById("date");
 
 
-const today =
-new Date();
-
-
-dateElement.innerText =
-today.toLocaleDateString(
+date.innerText =
+new Date().toLocaleDateString(
 "fr-FR",
 {
 weekday:"long",
@@ -655,87 +968,34 @@ month:"long"
 
 
 
-// CITATIONS
+// CITATION DU HAUT
 
-const quotes=[
+
+const dailyQuotes = [
 
 "Chaque petit pas compte.",
 
-"La constance crée les grands changements.",
+"La discipline crée la liberté.",
 
-"Fais moins, mais mieux.",
+"Ce que tu fais chaque jour construit qui tu deviens.",
 
-"Une journée intentionnelle commence par une intention claire.",
+"Le calme est une forme de puissance.",
 
-"Avancer lentement reste avancer."
+"Commence là où tu es. Utilise ce que tu as.",
+
+"La simplicité est la clé de la maîtrise."
 
 ];
 
 
 document.getElementById("quote").innerText =
 "“"+
-quotes[
+dailyQuotes[
 Math.floor(
-Math.random()*quotes.length
+Math.random()*dailyQuotes.length
 )
 ]
 +"”";
-
-
-
-// PROGRESSION TACHES
-
-
-const tasks =
-document.querySelectorAll(".taskCheck");
-
-
-const progressFill =
-document.getElementById("progressFill");
-
-
-const progressText =
-document.getElementById("progressText");
-
-
-function updateProgress(){
-
-let done=0;
-
-
-tasks.forEach(t=>{
-
-if(t.checked)
-done++;
-
-});
-
-
-let value =
-Math.round(
-done/tasks.length*100
-);
-
-
-progressFill.style.width =
-value+"%";
-
-
-progressText.innerText =
-value+"%";
-
-}
-
-
-
-tasks.forEach(t=>{
-
-t.addEventListener(
-"change",
-updateProgress
-);
-
-});
 
 
 
@@ -743,381 +1003,192 @@ updateProgress
 // ENERGIE
 
 
-const slider =
-document.getElementById("energySlider");
+const energyRange =
+document.getElementById(
+"energyRange"
+);
 
 
-const energyValue =
-document.getElementById("energyValue");
+const energyNumber =
+document.getElementById(
+"energyNumber"
+);
 
 
-slider.addEventListener(
-"input",
-()=>{
+const energyCircle =
+document.getElementById(
+"energyCircle"
+);
 
-energyValue.innerText =
-slider.value+" / 10";
 
-}
-
+const energyMessage =
+document.getElementById(
+"energyMessage"
 );
 
 
 
-// JOURNAL SAUVEGARDE
+function updateEnergy(){
+
+
+let value =
+energyRange.value;
+
+
+
+energyNumber.innerText =
+value;
+
+
+
+let percent =
+value*10;
+
+
+
+energyCircle.style.background =
+`
+conic-gradient(
+var(--green)
+${percent}%,
+var(--border)
+0
+)
+`;
+
+
+
+if(value<=3){
+
+energyMessage.innerText =
+"🌙 Besoin de repos";
+
+}
+
+else if(value<=6){
+
+energyMessage.innerText =
+"🌿 Énergie stable";
+
+}
+
+else if(value<=8){
+
+energyMessage.innerText =
+"✨ Bonne dynamique";
+
+}
+
+else{
+
+energyMessage.innerText =
+"🔥 Pleine énergie";
+
+}
+
+
+
+localStorage.setItem(
+"energy",
+value
+);
+
+
+}
+
+
+
+energyRange.value =
+localStorage.getItem("energy")
+|| 7;
+
+
+energyRange.addEventListener(
+"input",
+updateEnergy
+);
+
+
+updateEnergy();
+
+
+
+
+
+// RAPPELS
+
+
+const reminders =
+document.querySelectorAll(
+".dailyReminder"
+);
+
+
+
+reminders.forEach(
+(item,index)=>{
+
+
+item.checked =
+localStorage.getItem(
+"reminder_"+index
+)
+==="true";
+
+
+
+item.addEventListener(
+"change",
+()=>{
+
+
+localStorage.setItem(
+"reminder_"+index,
+item.checked
+);
+
+
+});
+
+
+
+});
+
+
+
+
+
+// JOURNAL
 
 
 const journal =
-document.getElementById("journal");
+document.getElementById(
+"journal"
+);
 
 
 journal.value =
 localStorage.getItem(
-"dailyJournal"
+"journal"
 )
 || "";
+
 
 
 journal.addEventListener(
 "input",
 ()=>{
 
+
 localStorage.setItem(
-"dailyJournal",
+"journal",
 journal.value
 );
+
 
 });
 
 
-
-</script>
-<style>
-
-
-.breath-container {
-
-display:flex;
-flex-direction:column;
-align-items:center;
-
-padding:20px;
-
-}
-
-
-.breath-orb {
-
-width:150px;
-height:150px;
-
-border-radius:50%;
-
-background:
-
-radial-gradient(
-circle at 30% 30%,
-rgba(255,255,255,.7),
-transparent 35%
-),
-
-linear-gradient(
-135deg,
-#8FB996,
-#6B8F71
-);
-
-
-box-shadow:
-
-0 0 40px rgba(107,143,113,.25);
-
-
-transform:scale(.8);
-
-transition:
-transform 4s ease-in-out;
-
-
-}
-
-
-.breath-text {
-
-margin-top:25px;
-
-font-size:24px;
-
-font-weight:700;
-
-}
-
-
-.breath-time {
-
-margin-top:8px;
-
-color:var(--muted);
-
-}
-
-
-
-.breath-button {
-
-margin-top:20px;
-
-border:none;
-
-padding:12px 24px;
-
-border-radius:14px;
-
-background:var(--green);
-
-color:white;
-
-font-size:15px;
-
-cursor:pointer;
-
-}
-
-
-
-</style>
-
-
-
-<script>
-
-
-// REMPLACE LE PLACEHOLDER RESPIRATION
-
-
-const breathCard =
-document.querySelector(
-".card:last-of-type"
-);
-
-
-
-breathCard.innerHTML = `
-
-<div class="card-title">
-🌿 Respiration
-</div>
-
-
-<div class="breath-container">
-
-
-<div
-class="breath-orb"
-id="breathOrb">
-</div>
-
-
-<div
-class="breath-text"
-id="breathText">
-Prêt ?
-</div>
-
-
-<div
-class="breath-time"
-id="breathTime">
-4 secondes
-</div>
-
-
-<button
-class="breath-button"
-id="breathButton">
-
-▶ Commencer
-
-</button>
-
-
-</div>
-
-`;
-
-
-
-// RESPIRATION 4-4-4-4
-
-
-const breathPhases=[
-
-{
-name:"Inspirez",
-duration:4,
-scale:1.25
-},
-
-{
-name:"Retenez",
-duration:4,
-scale:1.25
-},
-
-{
-name:"Expirez",
-duration:4,
-scale:.8
-},
-
-{
-name:"Retenez",
-duration:4,
-scale:.8
-}
-
-];
-
-
-let breathIndex=0;
-
-let breathSeconds=
-breathPhases[0].duration;
-
-
-let breathing=false;
-
-
-
-const breathOrb =
-document.getElementById(
-"breathOrb"
-);
-
-
-const breathText =
-document.getElementById(
-"breathText"
-);
-
-
-const breathTime =
-document.getElementById(
-"breathTime"
-);
-
-
-const breathButton =
-document.getElementById(
-"breathButton"
-);
-
-
-
-function renderBreath(){
-
-
-let phase =
-breathPhases[
-breathIndex
-];
-
-
-breathText.innerText =
-phase.name;
-
-
-breathTime.innerText =
-breathSeconds+" secondes";
-
-
-breathOrb.style.transform =
-"scale("+phase.scale+")";
-
-
-}
-
-
-
-function breathTick(){
-
-
-if(!breathing)
-return;
-
-
-
-breathSeconds--;
-
-
-
-if(breathSeconds<0){
-
-
-breathIndex =
-(breathIndex+1)
-%
-breathPhases.length;
-
-
-breathSeconds =
-breathPhases[
-breathIndex
-].duration;
-
-
-}
-
-
-renderBreath();
-
-
-}
-
-
-
-setInterval(
-breathTick,
-1000
-);
-
-
-
-breathButton.onclick =
-()=>{
-
-
-breathing =
-!breathing;
-
-
-
-if(breathing){
-
-
-breathButton.innerText =
-"⏸ Pause";
-
-
-renderBreath();
-
-
-}
-
-else{
-
-
-breathButton.innerText =
-"▶ Commencer";
-
-
-breathOrb.style.transform =
-"scale(.8)";
-
-
-}
-
-};
 
 
 
@@ -1128,7 +1199,9 @@ let focusSeconds =
 25*60;
 
 
-let focusRunning=false;
+let focusRunning =
+false;
+
 
 
 const focusTime =
@@ -1137,56 +1210,69 @@ document.getElementById(
 );
 
 
-const focusButton =
+const focusStart =
 document.getElementById(
-"focusButton"
+"focusStart"
+);
+
+
+const focusReset =
+document.getElementById(
+"focusReset"
+);
+
+
+const focusCircle =
+document.getElementById(
+"focusCircle"
 );
 
 
 
-function displayFocus(){
+function updateFocus(){
 
 
-let min =
+let minutes =
 Math.floor(
 focusSeconds/60
 );
 
 
-let sec =
+let seconds =
 focusSeconds%60;
 
 
+
 focusTime.innerText =
-min+":"+
-(sec<10?"0":"")+
-sec;
+minutes+
+":"+
+(seconds<10?"0":"")+
+seconds;
+
+
+
+let progress =
+((25*60-focusSeconds)/(25*60))*360;
+
+
+
+focusCircle.style.background =
+`
+conic-gradient(
+var(--blue)
+${progress}deg,
+var(--border)
+0
+)
+`;
+
 
 
 }
 
 
 
-setInterval(()=>{
-
-
-if(
-focusRunning &&
-focusSeconds>0
-){
-
-focusSeconds--;
-
-displayFocus();
-
-}
-
-
-},1000);
-
-
-
-focusButton.onclick =
+focusStart.onclick =
 ()=>{
 
 
@@ -1195,56 +1281,179 @@ focusRunning =
 
 
 
-focusButton.innerText =
+focusStart.innerText =
 focusRunning
 ?
 "⏸ Pause"
 :
-"▶ Commencer";
+"▶ Démarrer";
 
 
 };
 
 
 
-// SAUVEGARDE CHECKBOX
-
-
-tasks.forEach(
-(t,i)=>{
-
-
-let saved =
-localStorage.getItem(
-"task_"+i
-);
-
-
-if(saved==="true")
-t.checked=true;
-
-
-t.addEventListener(
-"change",
+focusReset.onclick =
 ()=>{
 
 
-localStorage.setItem(
-"task_"+i,
-t.checked
+focusRunning=false;
+
+focusSeconds =
+25*60;
+
+
+focusStart.innerText =
+"▶ Démarrer";
+
+
+updateFocus();
+
+
+};
+
+
+
+setInterval(
+()=>{
+
+
+if(
+focusRunning &&
+focusSeconds>0
+){
+
+
+focusSeconds--;
+
+
+updateFocus();
+
+
+}
+
+
+
+},
+1000
 );
 
 
-updateProgress();
+
+updateFocus();
 
 
-});
 
 
-});
+
+// SPHERE DE SAGESSE
 
 
-updateProgress();
+const inspirations=[
+
+
+{
+text:
+"La seule façon de faire du bon travail est d'aimer ce que vous faites.",
+author:
+"— Steve Jobs"
+},
+
+
+{
+text:
+"Ce n'est pas la montagne que nous conquérons, mais nous-mêmes.",
+author:
+"— Edmund Hillary"
+},
+
+
+{
+text:
+"Nous sommes ce que nous faisons de manière répétée.",
+author:
+"— Aristote"
+},
+
+
+{
+text:
+"Le succès est la somme de petits efforts répétés jour après jour.",
+author:
+"— Robert Collier"
+},
+
+
+{
+text:
+"La vie est vraiment simple, mais nous insistons à la rendre compliquée.",
+author:
+"— Confucius"
+}
+
+
+];
+
+
+
+const inspiration =
+document.getElementById(
+"inspiration"
+);
+
+
+const author =
+document.getElementById(
+"author"
+);
+
+
+
+document.getElementById(
+"newQuote"
+)
+.onclick =
+()=>{
+
+
+let quote =
+inspirations[
+Math.floor(
+Math.random()
+*
+inspirations.length
+)
+];
+
+
+inspiration.style.opacity=0;
+
+
+setTimeout(
+()=>{
+
+
+inspiration.innerText =
+"“"+
+quote.text+
+"”";
+
+
+author.innerText =
+quote.author;
+
+
+inspiration.style.opacity=1;
+
+
+},
+300
+);
+
+
+};
+
+
 
 
 
