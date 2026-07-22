@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -22,8 +23,6 @@
 --green:#7A9E7E;
 --blue:#5B8DEF;
 
---shadow:rgba(0,0,0,.035);
-
 }
 
 
@@ -36,8 +35,6 @@
 
 --card:#202020;
 --border:#333;
-
---green:#94B49F;
 
 }
 
@@ -75,14 +72,13 @@ color:var(--text);
 
 .container{
 
-max-width:450px;
+max-width:430px;
 
 margin:auto;
 
-padding:24px 16px 45px;
+padding:20px 12px 35px;
 
 }
-
 
 
 
@@ -91,11 +87,11 @@ padding:24px 16px 45px;
 
 .title{
 
-font-size:30px;
+font-size:28px;
 
 font-weight:800;
 
-letter-spacing:-1.5px;
+letter-spacing:-1.2px;
 
 }
 
@@ -107,11 +103,9 @@ display:flex;
 
 justify-content:space-between;
 
-align-items:center;
-
 margin-top:8px;
 
-font-size:14px;
+font-size:13px;
 
 color:var(--muted);
 
@@ -119,21 +113,9 @@ color:var(--muted);
 
 
 
-.weather{
-
-display:flex;
-
-align-items:center;
-
-gap:5px;
-
-}
 
 
-
-
-
-/* CARDS */
+/* CARD */
 
 
 .card{
@@ -142,14 +124,11 @@ background:var(--card);
 
 border:1px solid var(--border);
 
-border-radius:20px;
+border-radius:18px;
 
-padding:18px;
+padding:16px;
 
-margin-top:14px;
-
-box-shadow:
-0 6px 18px var(--shadow);
+margin-top:12px;
 
 }
 
@@ -161,17 +140,18 @@ font-size:14px;
 
 font-weight:700;
 
-margin-bottom:18px;
+margin-bottom:15px;
 
 }
 
 
 
 
-/* ENERGY */
+
+/* ENERGIE */
 
 
-.energy-center{
+.energy{
 
 text-align:center;
 
@@ -181,9 +161,9 @@ text-align:center;
 
 .energy-ring{
 
-width:135px;
+width:125px;
 
-height:135px;
+height:125px;
 
 border-radius:50%;
 
@@ -214,9 +194,9 @@ transition:.4s;
 
 .energy-inner{
 
-width:105px;
+width:98px;
 
-height:105px;
+height:98px;
 
 border-radius:50%;
 
@@ -232,13 +212,14 @@ align-items:center;
 
 justify-content:center;
 
+
 }
 
 
 
 .energy-score{
 
-font-size:34px;
+font-size:32px;
 
 font-weight:800;
 
@@ -258,7 +239,7 @@ color:var(--muted);
 
 .energy-message{
 
-margin-top:10px;
+margin-top:8px;
 
 font-size:13px;
 
@@ -268,14 +249,13 @@ color:var(--muted);
 
 
 
-
 .energy-slider{
-
-margin-top:22px;
 
 width:100%;
 
-height:7px;
+margin-top:18px;
+
+height:6px;
 
 appearance:none;
 
@@ -291,6 +271,7 @@ linear-gradient(
 #E07A5F
 );
 
+
 }
 
 
@@ -299,9 +280,9 @@ linear-gradient(
 
 appearance:none;
 
-width:22px;
+width:20px;
 
-height:22px;
+height:20px;
 
 border-radius:50%;
 
@@ -313,10 +294,6 @@ border:
 
 3px solid var(--green);
 
-
-box-shadow:
-
-0 3px 8px rgba(0,0,0,.15);
 
 cursor:pointer;
 
@@ -330,17 +307,18 @@ display:flex;
 
 justify-content:space-between;
 
-margin-top:10px;
-
-font-size:12px;
+font-size:11px;
 
 color:var(--muted);
+
+margin-top:8px;
 
 }
 
 
 
 </style>
+
 
 </head>
 
@@ -350,8 +328,6 @@ color:var(--muted);
 
 <div class="container">
 
-
-<div class="header">
 
 
 <div class="title">
@@ -372,23 +348,9 @@ Mercredi 22 juillet
 </div>
 
 
+<div>
 
-<div class="weather">
-
-<span>
-
-☀️
-
-</span>
-
-<span>
-
-24°C
-
-</span>
-
-</div>
-
+☀️ 24°C
 
 </div>
 
@@ -399,7 +361,8 @@ Mercredi 22 juillet
 
 
 
-<!-- ENERGIE -->
+
+<!-- ENERGIE FIXE -->
 
 
 <div class="card">
@@ -412,22 +375,28 @@ Mercredi 22 juillet
 </div>
 
 
-<div class="energy-center">
+<div class="energy">
 
 
 
-<div 
+<div
+
 class="energy-ring"
+
 id="energyRing"
+
 >
 
 
 <div class="energy-inner">
 
 
-<div 
+<div
+
 class="energy-score"
+
 id="energyScore"
+
 >
 
 7
@@ -449,14 +418,18 @@ id="energyScore"
 
 
 
-<div 
+<div
+
 class="energy-message"
+
 id="energyMessage"
+
 >
 
 ✨ Bonne dynamique
 
 </div>
+
 
 
 
@@ -483,21 +456,21 @@ class="energy-slider"
 
 <span>
 
-🌙 Repos
+🌙
 
 </span>
 
 
 <span>
 
-🌿 Équilibre
+🌿
 
 </span>
 
 
 <span>
 
-🔥 Forme
+🔥
 
 </span>
 
@@ -512,20 +485,62 @@ class="energy-slider"
 
 
 
-<!-- SUITE PARTIE 2 -->
 
-<!-- SPHERE DE SAGESSE -->
+
+<!-- ONGLET + CONTENU ARRIVENT PARTIE 2 -->
+
+<!-- ONGLET -->
+
+
+<div class="tabs">
+
+
+<button
+
+class="tab active"
+
+id="wisdomTab"
+
+>
+
+✨ Sagesse
+
+</button>
+
+
+
+<button
+
+class="tab"
+
+id="focusTab"
+
+>
+
+🧠 Focus
+
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- SAGESSE -->
+
+
+<div
+
+class="tab-content"
+
+id="wisdomContent"
+
+>
 
 
 <div class="card">
-
-
-<div class="card-title">
-
-✨ Sphère de sagesse
-
-</div>
-
 
 
 <div class="wisdom-container">
@@ -544,10 +559,12 @@ class="energy-slider"
 
 
 
+<div
 
-<div 
 class="wisdom-text"
+
 id="wisdomText"
+
 >
 
 "La simplicité est la sophistication suprême."
@@ -556,15 +573,17 @@ id="wisdomText"
 
 
 
-<div 
+<div
+
 class="wisdom-author"
+
 id="wisdomAuthor"
+
 >
 
 — Léonard de Vinci
 
 </div>
-
 
 
 
@@ -587,6 +606,10 @@ Nouvelle inspiration
 </div>
 
 
+</div>
+
+
+
 
 
 
@@ -595,15 +618,16 @@ Nouvelle inspiration
 <!-- FOCUS -->
 
 
+<div
+
+class="tab-content hidden"
+
+id="focusContent"
+
+>
+
+
 <div class="card">
-
-
-<div class="card-title">
-
-🧠 Focus
-
-</div>
-
 
 
 <div class="focus-container">
@@ -639,6 +663,7 @@ id="focusTime"
 
 
 </div>
+
 
 
 
@@ -681,6 +706,8 @@ id="focusReset"
 </button>
 
 
+</div>
+
 
 </div>
 
@@ -700,6 +727,92 @@ id="focusReset"
 <style>
 
 
+/* TABS */
+
+
+.tabs{
+
+display:flex;
+
+background:var(--card);
+
+border:1px solid var(--border);
+
+border-radius:14px;
+
+padding:4px;
+
+margin-top:12px;
+
+}
+
+
+
+.tab{
+
+flex:1;
+
+border:none;
+
+background:transparent;
+
+padding:10px;
+
+border-radius:11px;
+
+
+font-size:13px;
+
+color:var(--muted);
+
+cursor:pointer;
+
+
+}
+
+
+
+.tab.active{
+
+background:white;
+
+color:var(--text);
+
+
+box-shadow:
+
+0 2px 8px rgba(0,0,0,.08);
+
+}
+
+
+
+@media(prefers-color-scheme:dark){
+
+.tab.active{
+
+background:#333;
+
+}
+
+}
+
+
+
+
+
+.hidden{
+
+display:none;
+
+}
+
+
+
+
+
+
+
 /* SPHERE */
 
 
@@ -713,13 +826,11 @@ text-align:center;
 
 .wisdom-sphere{
 
-
 width:120px;
 
 height:120px;
 
-
-margin:8px auto 22px;
+margin:5px auto 20px;
 
 
 border-radius:50%;
@@ -731,8 +842,8 @@ background:
 radial-gradient(
 circle at 30% 25%,
 white,
-rgba(255,255,255,.95),
-#ededed
+#f4f4f4,
+#dddddd
 );
 
 
@@ -741,7 +852,7 @@ box-shadow:
 
 0 0 25px rgba(255,255,255,.9),
 
-0 12px 25px rgba(0,0,0,.08);
+0 10px 25px rgba(0,0,0,.08);
 
 
 
@@ -750,8 +861,7 @@ position:relative;
 
 animation:
 
-floatSphere 5s ease-in-out infinite;
-
+floatSphere 5s infinite ease-in-out;
 
 }
 
@@ -759,13 +869,12 @@ floatSphere 5s ease-in-out infinite;
 
 .sphere-light{
 
-
 position:absolute;
 
 
-width:32px;
+width:30px;
 
-height:32px;
+height:30px;
 
 
 top:20px;
@@ -779,9 +888,6 @@ border-radius:50%;
 background:white;
 
 
-opacity:.8;
-
-
 filter:blur(4px);
 
 
@@ -792,13 +898,6 @@ filter:blur(4px);
 @keyframes floatSphere{
 
 
-0%,100%{
-
-transform:translateY(0);
-
-}
-
-
 50%{
 
 transform:translateY(-8px);
@@ -807,6 +906,8 @@ transform:translateY(-8px);
 
 
 }
+
+
 
 
 
@@ -836,6 +937,9 @@ color:var(--muted);
 
 
 
+
+
+
 /* FOCUS */
 
 
@@ -849,9 +953,9 @@ text-align:center;
 
 .focus-ring{
 
-width:155px;
+width:150px;
 
-height:155px;
+height:150px;
 
 border-radius:50%;
 
@@ -867,7 +971,6 @@ align-items:center;
 justify-content:center;
 
 
-
 background:
 
 conic-gradient(
@@ -876,18 +979,15 @@ var(--border) 0deg
 );
 
 
-
-transition:.4s;
-
 }
 
 
 
 .focus-inner{
 
-width:125px;
+width:120px;
 
-height:125px;
+height:120px;
 
 border-radius:50%;
 
@@ -908,7 +1008,7 @@ justify-content:center;
 
 .focus-time{
 
-font-size:28px;
+font-size:27px;
 
 font-weight:800;
 
@@ -918,7 +1018,7 @@ font-weight:800;
 
 .focus-label{
 
-margin-top:14px;
+margin-top:12px;
 
 font-size:13px;
 
@@ -946,13 +1046,13 @@ button{
 
 border:none;
 
-border-radius:14px;
+cursor:pointer;
 
-padding:11px 16px;
+border-radius:12px;
+
+padding:10px 15px;
 
 font-size:13px;
-
-cursor:pointer;
 
 }
 
@@ -987,7 +1087,7 @@ color:var(--text);
 <script>
 
 
-// DATE AUTOMATIQUE
+// DATE
 
 
 document.getElementById("date").innerText =
@@ -1005,23 +1105,126 @@ month:"long"
 
 
 
+
+
+// ONGLET NAVIGATION
+
+
+const wisdomTab =
+document.getElementById(
+"wisdomTab"
+);
+
+
+const focusTab =
+document.getElementById(
+"focusTab"
+);
+
+
+const wisdomContent =
+document.getElementById(
+"wisdomContent"
+);
+
+
+const focusContent =
+document.getElementById(
+"focusContent"
+);
+
+
+
+wisdomTab.onclick = ()=>{
+
+
+wisdomTab.classList.add(
+"active"
+);
+
+
+focusTab.classList.remove(
+"active"
+);
+
+
+
+wisdomContent.classList.remove(
+"hidden"
+);
+
+
+focusContent.classList.add(
+"hidden"
+);
+
+
+
+};
+
+
+
+focusTab.onclick = ()=>{
+
+
+focusTab.classList.add(
+"active"
+);
+
+
+wisdomTab.classList.remove(
+"active"
+);
+
+
+
+focusContent.classList.remove(
+"hidden"
+);
+
+
+wisdomContent.classList.add(
+"hidden"
+);
+
+
+
+};
+
+
+
+
+
+
+
+
+
 // ENERGIE
 
 
 const energySlider =
-document.getElementById("energySlider");
+document.getElementById(
+"energySlider"
+);
 
 
 const energyScore =
-document.getElementById("energyScore");
+document.getElementById(
+"energyScore"
+);
 
 
 const energyRing =
-document.getElementById("energyRing");
+document.getElementById(
+"energyRing"
+);
 
 
 const energyMessage =
-document.getElementById("energyMessage");
+document.getElementById(
+"energyMessage"
+);
+
 
 
 
@@ -1041,17 +1244,12 @@ value;
 
 
 
-const progress =
-value * 10;
-
-
-
 energyRing.style.background =
 
 `
 conic-gradient(
 var(--green)
-${progress}%,
+${value*10}%,
 var(--border)
 0
 )
@@ -1059,21 +1257,21 @@ var(--border)
 
 
 
-if(value <=3){
+if(value<=3){
 
 energyMessage.innerText =
 "🌙 Besoin de repos";
 
 }
 
-else if(value <=6){
+else if(value<=6){
 
 energyMessage.innerText =
 "🌿 Énergie stable";
 
 }
 
-else if(value <=8){
+else if(value<=8){
 
 energyMessage.innerText =
 "✨ Bonne dynamique";
@@ -1105,7 +1303,7 @@ energySlider.value =
 localStorage.getItem(
 "energy"
 )
-|| 7;
+||7;
 
 
 
@@ -1113,6 +1311,7 @@ energySlider.addEventListener(
 "input",
 updateEnergy
 );
+
 
 
 updateEnergy();
@@ -1123,11 +1322,14 @@ updateEnergy();
 
 
 
+
+
 // FOCUS TIMER
 
 
-const focusTotal =
-25 * 60;
+
+let focusTotal =
+25*60;
 
 
 let focusSeconds =
@@ -1151,7 +1353,6 @@ document.getElementById(
 );
 
 
-
 const focusStart =
 document.getElementById(
 "focusStart"
@@ -1170,15 +1371,14 @@ document.getElementById(
 function updateFocus(){
 
 
-const minutes =
+let minutes =
 Math.floor(
-focusSeconds / 60
+focusSeconds/60
 );
 
 
-
-const seconds =
-focusSeconds % 60;
+let seconds =
+focusSeconds%60;
 
 
 
@@ -1188,13 +1388,13 @@ minutes
 +
 ":"
 +
-(seconds < 10 ? "0":"")
+(seconds<10?"0":"")
 +
 seconds;
 
 
 
-const progress =
+let progress =
 
 (
 (focusTotal-focusSeconds)
@@ -1228,12 +1428,13 @@ setInterval(()=>{
 
 if(
 focusRunning &&
-focusSeconds > 0
+focusSeconds>0
 ){
 
 focusSeconds--;
 
 updateFocus();
+
 
 }
 
@@ -1244,8 +1445,7 @@ updateFocus();
 
 
 
-focusStart.onclick =
-()=>{
+focusStart.onclick = ()=>{
 
 
 focusRunning =
@@ -1256,13 +1456,9 @@ focusRunning =
 focusStart.innerText =
 
 focusRunning
-
 ?
-
 "⏸ Pause"
-
 :
-
 "▶ Démarrer";
 
 
@@ -1272,16 +1468,13 @@ focusRunning
 
 
 
-
-focusReset.onclick =
-()=>{
+focusReset.onclick = ()=>{
 
 
 focusRunning=false;
 
 
-focusSeconds=
-focusTotal;
+focusSeconds=focusTotal;
 
 
 focusStart.innerText =
@@ -1295,7 +1488,6 @@ updateFocus();
 
 
 
-
 updateFocus();
 
 
@@ -1306,65 +1498,40 @@ updateFocus();
 
 
 
-// SPHERE DE SAGESSE
+// CITATIONS
 
 
-const wisdomList = [
+const quotes=[
 
 
-{
-
-text:
+[
 "La simplicité est la sophistication suprême.",
-
-author:
 "— Léonard de Vinci"
+],
 
-},
 
-
-{
-
-text:
+[
 "La discipline est le pont entre les objectifs et les accomplissements.",
-
-author:
 "— Jim Rohn"
-
-},
-
-
-{
-
-text:
-"Ce n'est pas la montagne que nous conquérons, mais nous-mêmes.",
-
-author:
-"— Edmund Hillary"
-
-},
+],
 
 
-{
-
-text:
+[
 "La meilleure façon de prédire l'avenir est de le créer.",
-
-author:
 "— Peter Drucker"
+],
 
-},
 
-
-{
-
-text:
+[
 "Nous sommes ce que nous faisons de manière répétée.",
-
-author:
 "— Aristote"
+],
 
-}
+
+[
+"Le succès est la somme de petits efforts répétés chaque jour.",
+"— Robert Collier"
+]
 
 
 ];
@@ -1388,17 +1555,16 @@ document.getElementById(
 document.getElementById(
 "newWisdom"
 )
-.onclick =
-()=>{
+.onclick = ()=>{
 
 
 const quote =
 
-wisdomList[
+quotes[
 Math.floor(
 Math.random()
 *
-wisdomList.length
+quotes.length
 )
 ];
 
@@ -1412,15 +1578,11 @@ setTimeout(()=>{
 
 
 wisdomText.innerText =
-"“"
-+
-quote.text
-+
-"”";
+"“"+quote[0]+"”";
 
 
 wisdomAuthor.innerText =
-quote.author;
+quote[1];
 
 
 
@@ -1428,12 +1590,11 @@ wisdomText.style.opacity=1;
 
 
 
-},300);
+},250);
+
 
 
 };
-
-
 
 
 
