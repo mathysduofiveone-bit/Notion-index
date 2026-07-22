@@ -11,7 +11,6 @@
 
 <style>
 
-
 :root {
 
 --text:#37352F;
@@ -21,13 +20,16 @@
 --border:#E9E9E7;
 
 --green:#7A9E7E;
---blue:#5B8DEF;
---gold:#D4A72C;
+--green-soft:#B8D8BA;
 
---shadow:
-rgba(0,0,0,0.04);
+--blue:#5B8DEF;
+
+--orange:#D4A72C;
+
+--shadow:rgba(0,0,0,.04);
 
 }
+
 
 
 @media(prefers-color-scheme:dark){
@@ -38,13 +40,12 @@ rgba(0,0,0,0.04);
 --muted:#9B9A97;
 
 --card:#202020;
---border:#333333;
+--border:#333;
 
 --green:#94B49F;
---blue:#7CA8FF;
+--green-soft:#6B8F71;
 
---shadow:
-rgba(0,0,0,.25);
+--shadow:rgba(0,0,0,.25);
 
 }
 
@@ -74,7 +75,6 @@ BlinkMacSystemFont,
 "Segoe UI",
 sans-serif;
 
-
 color:var(--text);
 
 }
@@ -87,7 +87,7 @@ max-width:520px;
 
 margin:auto;
 
-padding:35px 20px 60px;
+padding:32px 20px 60px;
 
 }
 
@@ -98,7 +98,7 @@ padding:35px 20px 60px;
 
 .header{
 
-margin-bottom:30px;
+margin-bottom:28px;
 
 }
 
@@ -115,9 +115,15 @@ letter-spacing:-1.5px;
 
 
 
-.date{
+.info-row{
 
-margin-top:8px;
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-top:10px;
 
 color:var(--muted);
 
@@ -127,22 +133,21 @@ font-size:15px;
 
 
 
-.quote{
+.weather{
 
-margin-top:20px;
+display:flex;
 
-padding-left:16px;
+align-items:center;
 
-border-left:
-3px solid var(--border);
+gap:6px;
 
-font-size:14px;
+}
 
-color:var(--muted);
 
-font-style:italic;
 
-line-height:1.5;
+.weather-icon{
+
+font-size:20px;
 
 }
 
@@ -157,16 +162,14 @@ background:var(--card);
 
 border:1px solid var(--border);
 
-border-radius:22px;
+border-radius:24px;
 
-padding:22px;
+padding:24px;
 
 margin-bottom:18px;
 
-
 box-shadow:
-0 10px 30px var(--shadow);
-
+0 12px 30px var(--shadow);
 
 }
 
@@ -178,7 +181,7 @@ font-size:15px;
 
 font-weight:700;
 
-margin-bottom:20px;
+margin-bottom:22px;
 
 }
 
@@ -187,67 +190,9 @@ margin-bottom:20px;
 /* ENERGY */
 
 
-.energy-box{
+.energy-container{
 
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-flex-direction:column;
-
-}
-
-
-
-.energy-circle{
-
-width:130px;
-
-height:130px;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-
-background:
-
-conic-gradient(
-var(--green) 70%,
-var(--border) 0
-);
-
-
-transition:.5s;
-
-
-}
-
-
-
-.energy-inner{
-
-width:100px;
-
-height:100px;
-
-border-radius:50%;
-
-background:var(--card);
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-flex-direction:column;
+text-align:center;
 
 }
 
@@ -255,15 +200,96 @@ flex-direction:column;
 
 .energy-number{
 
-font-size:32px;
+font-size:46px;
 
-font-weight:750;
+font-weight:800;
+
+letter-spacing:-2px;
 
 }
 
 
 
-.energy-label{
+.energy-message{
+
+margin-top:5px;
+
+font-size:14px;
+
+color:var(--muted);
+
+}
+
+
+
+.energy-slider-container{
+
+margin-top:28px;
+
+position:relative;
+
+}
+
+
+
+.energy-slider{
+
+width:100%;
+
+appearance:none;
+
+height:8px;
+
+border-radius:20px;
+
+
+background:
+
+linear-gradient(
+90deg,
+#94B49F,
+#D4A72C,
+#E07A5F
+);
+
+
+outline:none;
+
+}
+
+
+
+.energy-slider::-webkit-slider-thumb{
+
+appearance:none;
+
+width:26px;
+
+height:26px;
+
+border-radius:50%;
+
+background:white;
+
+border:4px solid var(--green);
+
+box-shadow:
+
+0 4px 12px rgba(0,0,0,.15);
+
+cursor:pointer;
+
+}
+
+
+
+.energy-labels{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-top:12px;
 
 font-size:13px;
 
@@ -273,83 +299,448 @@ color:var(--muted);
 
 
 
-.energy-range{
-
-width:100%;
-
-margin-top:22px;
-
-accent-color:var(--green);
-
-}
-
-
-
-/* REMINDERS */
-
-
-.reminder{
+.energy-labels span{
 
 display:flex;
 
-align-items:center;
+flex-direction:column;
 
-justify-content:space-between;
-
-padding:12px 0;
-
-border-bottom:
-1px solid var(--border);
+gap:3px;
 
 }
 
 
 
-.reminder:last-child{
-
-border-bottom:none;
-
-}
 
 
+</style>
 
-.reminder-left{
-
-display:flex;
-
-align-items:center;
-
-gap:10px;
-
-}
+</head>
 
 
 
-.reminder input{
+<body>
 
-width:18px;
 
-height:18px;
+<div class="container">
 
-accent-color:var(--green);
 
-}
 
+<div class="header">
+
+
+<div class="title">
+
+☀️ Aujourd'hui
+
+</div>
+
+
+
+<div class="info-row">
+
+
+<div id="date">
+
+Mercredi 22 juillet
+
+</div>
+
+
+
+<div class="weather">
+
+
+<span class="weather-icon">
+
+☀️
+
+</span>
+
+
+<span>
+
+24°C
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- ENERGIE -->
+
+
+<div class="card">
+
+
+<div class="card-title">
+
+⚡ Mon énergie
+
+</div>
+
+
+
+<div class="energy-container">
+
+
+<div class="energy-number" id="energyNumber">
+
+7
+
+</div>
+
+
+
+<div class="energy-message" id="energyMessage">
+
+✨ Bonne dynamique
+
+</div>
+
+
+
+<div class="energy-slider-container">
+
+
+<input
+
+type="range"
+
+min="1"
+
+max="10"
+
+value="7"
+
+class="energy-slider"
+
+id="energySlider"
+
+>
+
+
+
+<div class="energy-labels">
+
+
+<span>
+
+🌙
+
+Repos
+
+</span>
+
+
+<span>
+
+🌿
+
+Équilibre
+
+</span>
+
+
+<span>
+
+🔥
+
+Pleine forme
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- SUITE PARTIE 2 -->
+
+<!-- FOCUS -->
+
+
+<div class="card">
+
+
+<div class="card-title">
+
+🧠 Focus
+
+</div>
+
+
+
+<div class="focus-wrapper">
+
+
+<div class="focus-circle" id="focusCircle">
+
+
+<div class="focus-time" id="focusTime">
+
+25:00
+
+</div>
+
+
+</div>
+
+
+
+<div class="focus-subtitle">
+
+Session profonde
+
+</div>
+
+
+
+<div class="focus-buttons">
+
+
+<button 
+class="primary-btn"
+id="focusStart">
+
+▶ Démarrer
+
+</button>
+
+
+<button 
+class="secondary-btn"
+id="focusReset">
+
+↺ Recommencer
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- RAPPELS -->
+
+
+<div class="card">
+
+
+<div class="card-title">
+
+🌱 Rappels essentiels
+
+</div>
+
+
+
+<div class="reminder-list">
+
+
+
+<label class="reminder-item">
+
+<input 
+type="checkbox"
+class="reminderCheck">
+
+<span>
+
+💧 Hydratation
+
+</span>
+
+
+</label>
+
+
+
+
+<label class="reminder-item">
+
+<input 
+type="checkbox"
+class="reminderCheck">
+
+<span>
+
+📖 Lecture
+
+</span>
+
+
+</label>
+
+
+
+
+
+<label class="reminder-item">
+
+<input 
+type="checkbox"
+class="reminderCheck">
+
+<span>
+
+🚶 Mouvement
+
+</span>
+
+
+</label>
+
+
+
+
+
+<label class="reminder-item">
+
+<input 
+type="checkbox"
+class="reminderCheck">
+
+<span>
+
+✍️ Habitudes
+
+</span>
+
+
+</label>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- SPHERE DE SAGESSE -->
+
+
+<div class="card">
+
+
+<div class="card-title">
+
+✨ Sphère de sagesse
+
+</div>
+
+
+
+<div class="sphere-section">
+
+
+
+<div class="wisdom-sphere">
+
+
+</div>
+
+
+
+<div class="wisdom-text" id="wisdomText">
+
+
+"La simplicité est la sophistication suprême."
+
+
+</div>
+
+
+
+<div class="wisdom-author" id="wisdomAuthor">
+
+
+— Léonard de Vinci
+
+
+</div>
+
+
+
+<button
+
+class="secondary-btn"
+
+id="newWisdom">
+
+Nouvelle inspiration
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<style>
 
 
 /* FOCUS */
 
 
+.focus-wrapper{
+
+text-align:center;
+
+}
+
+
+
 .focus-circle{
 
-width:170px;
+width:180px;
 
-height:170px;
-
-margin:auto;
-
+height:180px;
 
 border-radius:50%;
+
+margin:auto;
 
 
 display:flex;
@@ -367,19 +758,21 @@ var(--border) 0deg
 );
 
 
+transition:.4s;
+
 }
 
 
 
-.focus-inner{
+.focus-time{
 
-width:135px;
+width:145px;
 
-height:135px;
-
-background:var(--card);
+height:145px;
 
 border-radius:50%;
+
+background:var(--card);
 
 
 display:flex;
@@ -388,21 +781,34 @@ align-items:center;
 
 justify-content:center;
 
-font-size:30px;
 
-font-weight:700;
+font-size:34px;
+
+font-weight:800;
 
 }
 
 
 
-.buttons{
+.focus-subtitle{
+
+margin-top:18px;
+
+color:var(--muted);
+
+font-size:14px;
+
+}
+
+
+
+.focus-buttons{
 
 display:flex;
 
-gap:10px;
-
 justify-content:center;
+
+gap:12px;
 
 margin-top:22px;
 
@@ -414,19 +820,19 @@ button{
 
 border:none;
 
-border-radius:14px;
+border-radius:15px;
 
-padding:12px 18px;
-
-cursor:pointer;
+padding:13px 18px;
 
 font-size:14px;
+
+cursor:pointer;
 
 }
 
 
 
-.primary{
+.primary-btn{
 
 background:var(--blue);
 
@@ -436,7 +842,7 @@ color:white;
 
 
 
-.secondary{
+.secondary-btn{
 
 background:var(--border);
 
@@ -446,10 +852,56 @@ color:var(--text);
 
 
 
+
+
+/* RAPPELS */
+
+
+.reminder-item{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+padding:13px 0;
+
+border-bottom:
+
+1px solid var(--border);
+
+cursor:pointer;
+
+}
+
+
+
+.reminder-item:last-child{
+
+border-bottom:none;
+
+}
+
+
+
+.reminder-item input{
+
+width:18px;
+
+height:18px;
+
+accent-color:var(--green);
+
+}
+
+
+
+
 /* SPHERE */
 
 
-.sphere-box{
+.sphere-section{
 
 text-align:center;
 
@@ -457,14 +909,13 @@ text-align:center;
 
 
 
-.sphere{
+.wisdom-sphere{
 
+width:135px;
 
-width:120px;
+height:135px;
 
-height:120px;
-
-margin:10px auto 25px;
+margin:10px auto 28px;
 
 
 border-radius:50%;
@@ -473,9 +924,9 @@ border-radius:50%;
 background:
 
 radial-gradient(
-circle at 30% 30%,
-white,
-transparent 25%
+circle at 30% 25%,
+rgba(255,255,255,.8),
+transparent 30%
 ),
 
 linear-gradient(
@@ -488,19 +939,21 @@ linear-gradient(
 
 box-shadow:
 
-0 0 45px rgba(122,158,126,.35);
+0 0 50px rgba(122,158,126,.4);
+
 
 
 animation:
 
-float 4s ease-in-out infinite;
+sphereFloat 5s ease-in-out infinite;
 
 
 }
 
 
 
-@keyframes float{
+@keyframes sphereFloat{
+
 
 0%,100%{
 
@@ -511,440 +964,41 @@ transform:translateY(0);
 
 50%{
 
-transform:translateY(-12px);
+transform:translateY(-14px);
 
 }
 
+
 }
 
 
 
-.inspiration{
+.wisdom-text{
 
 font-size:15px;
 
-line-height:1.5;
+line-height:1.6;
 
 }
 
 
 
-.author{
+.wisdom-author{
 
-margin-top:10px;
-
-font-size:13px;
+margin-top:12px;
 
 color:var(--muted);
 
-}
-
-
-
-textarea{
-
-width:100%;
-
-height:120px;
-
-resize:none;
-
-border:none;
-
-outline:none;
-
-background:transparent;
-
-font-family:inherit;
-
-font-size:15px;
-
-color:var(--text);
+font-size:13px;
 
 }
+
 
 
 </style>
 
 
-</head>
-
-
-<body>
-
-
-<div class="container">
-
-
-<div class="header">
-
-
-<div class="title">
-
-☀️ Aujourd'hui
-
-</div>
-
-
-<div class="date" id="date">
-
-</div>
-
-
-<div class="quote" id="quote">
-
-</div>
-
-
-</div>
-
-
-<!-- LA SUITE ARRIVE PARTIE 2 -->
-
-<!-- ENERGIE -->
-
-
-<div class="card">
-
-
-<div class="card-title">
-
-⚡ Mon énergie
-
-</div>
-
-
-<div class="energy-box">
-
-
-<div class="energy-circle" id="energyCircle">
-
-
-<div class="energy-inner">
-
-
-<div class="energy-number" id="energyNumber">
-
-7
-
-</div>
-
-
-<div class="energy-label">
-
-/ 10
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-<div 
-id="energyMessage"
-style="
-margin-top:15px;
-color:var(--muted);
-font-size:14px;
-">
-
-Bonne dynamique
-
-</div>
-
-
-<input
-type="range"
-min="1"
-max="10"
-value="7"
-id="energyRange"
-class="energy-range"
->
-
-
-</div>
-
-
-</div>
-
-
-
-<!-- RAPPELS -->
-
-
-<div class="card">
-
-
-<div class="card-title">
-
-🌱 Petits rappels
-
-</div>
-
-
-
-<div class="reminder">
-
-
-<div class="reminder-left">
-
-<input 
-type="checkbox"
-class="dailyReminder"
-data-name="Boire de l'eau"
->
-
-<span>
-💧 Boire de l'eau
-</span>
-
-</div>
-
-
-</div>
-
-
-
-<div class="reminder">
-
-
-<div class="reminder-left">
-
-<input 
-type="checkbox"
-class="dailyReminder"
-data-name="Lire"
->
-
-<span>
-📖 Lire quelques pages
-</span>
-
-</div>
-
-
-</div>
-
-
-
-<div class="reminder">
-
-
-<div class="reminder-left">
-
-<input 
-type="checkbox"
-class="dailyReminder"
-data-name="Bouger"
->
-
-<span>
-🚶 Bouger un peu
-</span>
-
-</div>
-
-
-</div>
-
-
-
-<div class="reminder">
-
-
-<div class="reminder-left">
-
-<input 
-type="checkbox"
-class="dailyReminder"
-data-name="Habitudes"
->
-
-<span>
-✍️ Remplir mes habitudes
-</span>
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<!-- FOCUS -->
-
-
-<div class="card">
-
-
-<div class="card-title">
-
-🧠 Focus
-
-</div>
-
-
-<div class="focus-circle" id="focusCircle">
-
-
-<div class="focus-inner" id="focusTime">
-
-25:00
-
-</div>
-
-
-</div>
-
-
-
-<div
-style="
-text-align:center;
-margin-top:15px;
-color:var(--muted);
-font-size:14px;
-">
-
-Session profonde
-
-</div>
-
-
-
-<div class="buttons">
-
-
-<button 
-class="primary"
-id="focusStart"
->
-
-▶ Démarrer
-
-</button>
-
-
-<button
-class="secondary"
-id="focusReset"
->
-
-↺ Recommencer
-
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<!-- JOURNAL -->
-
-
-<div class="card">
-
-
-<div class="card-title">
-
-✍️ Moment du jour
-
-</div>
-
-
-
-<textarea
-id="journal"
-placeholder="Une pensée, une victoire, une chose à retenir..."
-></textarea>
-
-
-</div>
-
-
-
-
-
-<!-- SPHERE -->
-
-
-
-<div class="card">
-
-
-<div class="card-title">
-
-✨ Sphère de sagesse
-
-</div>
-
-
-
-<div class="sphere-box">
-
-
-<div class="sphere">
-
-</div>
-
-
-<div 
-class="inspiration"
-id="inspiration"
->
-
-"La simplicité est la sophistication suprême."
-
-</div>
-
-
-<div 
-class="author"
-id="author"
->
-
-— Léonard de Vinci
-
-</div>
-
-
-
-<button
-class="secondary"
-style="
-margin-top:20px;
-"
-id="newQuote"
->
-
-Nouvelle inspiration
-
-</button>
-
-
-
-</div>
-
-
-</div>
-
-
-<!-- JAVASCRIPT ARRIVE PARTIE 3 -->
+<!-- SUITE PARTIE 3 -->
 
 <script>
 
@@ -952,11 +1006,11 @@ Nouvelle inspiration
 // DATE
 
 
-const date =
+const dateElement =
 document.getElementById("date");
 
 
-date.innerText =
+dateElement.innerText =
 new Date().toLocaleDateString(
 "fr-FR",
 {
@@ -968,56 +1022,20 @@ month:"long"
 
 
 
-// CITATION DU HAUT
-
-
-const dailyQuotes = [
-
-"Chaque petit pas compte.",
-
-"La discipline crée la liberté.",
-
-"Ce que tu fais chaque jour construit qui tu deviens.",
-
-"Le calme est une forme de puissance.",
-
-"Commence là où tu es. Utilise ce que tu as.",
-
-"La simplicité est la clé de la maîtrise."
-
-];
-
-
-document.getElementById("quote").innerText =
-"“"+
-dailyQuotes[
-Math.floor(
-Math.random()*dailyQuotes.length
-)
-]
-+"”";
-
-
 
 
 // ENERGIE
 
 
-const energyRange =
+const energySlider =
 document.getElementById(
-"energyRange"
+"energySlider"
 );
 
 
 const energyNumber =
 document.getElementById(
 "energyNumber"
-);
-
-
-const energyCircle =
-document.getElementById(
-"energyCircle"
 );
 
 
@@ -1031,8 +1049,8 @@ document.getElementById(
 function updateEnergy(){
 
 
-let value =
-energyRange.value;
+const value =
+energySlider.value;
 
 
 
@@ -1041,38 +1059,21 @@ value;
 
 
 
-let percent =
-value*10;
-
-
-
-energyCircle.style.background =
-`
-conic-gradient(
-var(--green)
-${percent}%,
-var(--border)
-0
-)
-`;
-
-
-
-if(value<=3){
+if(value <= 3){
 
 energyMessage.innerText =
 "🌙 Besoin de repos";
 
 }
 
-else if(value<=6){
+else if(value <= 6){
 
 energyMessage.innerText =
 "🌿 Énergie stable";
 
 }
 
-else if(value<=8){
+else if(value <= 8){
 
 energyMessage.innerText =
 "✨ Bonne dynamique";
@@ -1082,14 +1083,14 @@ energyMessage.innerText =
 else{
 
 energyMessage.innerText =
-"🔥 Pleine énergie";
+"🔥 Pleine forme";
 
 }
 
 
 
 localStorage.setItem(
-"energy",
+"energyLevel",
 value
 );
 
@@ -1098,18 +1099,24 @@ value
 
 
 
-energyRange.value =
-localStorage.getItem("energy")
+energySlider.value =
+localStorage.getItem(
+"energyLevel"
+)
 || 7;
 
 
-energyRange.addEventListener(
+
+energySlider.addEventListener(
 "input",
 updateEnergy
 );
 
 
+
 updateEnergy();
+
+
 
 
 
@@ -1120,16 +1127,16 @@ updateEnergy();
 
 const reminders =
 document.querySelectorAll(
-".dailyReminder"
+".reminderCheck"
 );
 
 
 
 reminders.forEach(
-(item,index)=>{
+(check,index)=>{
 
 
-item.checked =
+check.checked =
 localStorage.getItem(
 "reminder_"+index
 )
@@ -1137,56 +1144,22 @@ localStorage.getItem(
 
 
 
-item.addEventListener(
+check.addEventListener(
 "change",
 ()=>{
 
 
 localStorage.setItem(
 "reminder_"+index,
-item.checked
+check.checked
 );
 
 
 });
 
 
-
 });
 
-
-
-
-
-// JOURNAL
-
-
-const journal =
-document.getElementById(
-"journal"
-);
-
-
-journal.value =
-localStorage.getItem(
-"journal"
-)
-|| "";
-
-
-
-journal.addEventListener(
-"input",
-()=>{
-
-
-localStorage.setItem(
-"journal",
-journal.value
-);
-
-
-});
 
 
 
@@ -1195,8 +1168,12 @@ journal.value
 // FOCUS TIMER
 
 
-let focusSeconds =
+let focusDuration =
 25*60;
+
+
+let focusSeconds =
+focusDuration;
 
 
 let focusRunning =
@@ -1229,30 +1206,39 @@ document.getElementById(
 
 
 
+
+
 function updateFocus(){
 
 
 let minutes =
 Math.floor(
-focusSeconds/60
+focusSeconds / 60
 );
 
 
 let seconds =
-focusSeconds%60;
+focusSeconds % 60;
 
 
 
 focusTime.innerText =
 minutes+
 ":"+
-(seconds<10?"0":"")+
+(seconds < 10 ? "0":"")
++
 seconds;
 
 
 
-let progress =
-((25*60-focusSeconds)/(25*60))*360;
+let completed =
+(
+(focusDuration-focusSeconds)
+/
+focusDuration
+)
+*
+360;
 
 
 
@@ -1260,7 +1246,7 @@ focusCircle.style.background =
 `
 conic-gradient(
 var(--blue)
-${progress}deg,
+${completed}deg,
 var(--border)
 0
 )
@@ -1269,6 +1255,29 @@ var(--border)
 
 
 }
+
+
+
+
+setInterval(()=>{
+
+
+if(
+focusRunning &&
+focusSeconds > 0
+){
+
+focusSeconds--;
+
+updateFocus();
+
+
+}
+
+
+},1000);
+
+
 
 
 
@@ -1293,14 +1302,17 @@ focusRunning
 
 
 
+
+
 focusReset.onclick =
 ()=>{
 
 
 focusRunning=false;
 
+
 focusSeconds =
-25*60;
+focusDuration;
 
 
 focusStart.innerText =
@@ -1314,33 +1326,10 @@ updateFocus();
 
 
 
-setInterval(
-()=>{
-
-
-if(
-focusRunning &&
-focusSeconds>0
-){
-
-
-focusSeconds--;
-
 
 updateFocus();
 
 
-}
-
-
-
-},
-1000
-);
-
-
-
-updateFocus();
 
 
 
@@ -1349,30 +1338,38 @@ updateFocus();
 // SPHERE DE SAGESSE
 
 
-const inspirations=[
+const wisdoms = [
 
 
 {
 text:
-"La seule façon de faire du bon travail est d'aimer ce que vous faites.",
+"La simplicité est la sophistication suprême.",
 author:
-"— Steve Jobs"
+"— Léonard de Vinci"
 },
 
 
 {
 text:
-"Ce n'est pas la montagne que nous conquérons, mais nous-mêmes.",
+"La discipline est le pont entre les objectifs et les accomplissements.",
 author:
-"— Edmund Hillary"
+"— Jim Rohn"
 },
 
 
 {
 text:
-"Nous sommes ce que nous faisons de manière répétée.",
+"Ce que nous faisons chaque jour compte plus que ce que nous faisons parfois.",
 author:
-"— Aristote"
+"— Gretchen Rubin"
+},
+
+
+{
+text:
+"La meilleure façon de prédire l'avenir est de le créer.",
+author:
+"— Peter Drucker"
 },
 
 
@@ -1381,14 +1378,6 @@ text:
 "Le succès est la somme de petits efforts répétés jour après jour.",
 author:
 "— Robert Collier"
-},
-
-
-{
-text:
-"La vie est vraiment simple, mais nous insistons à la rendre compliquée.",
-author:
-"— Confucius"
 }
 
 
@@ -1396,59 +1385,64 @@ author:
 
 
 
-const inspiration =
+const wisdomText =
 document.getElementById(
-"inspiration"
+"wisdomText"
 );
 
 
-const author =
+const wisdomAuthor =
 document.getElementById(
-"author"
+"wisdomAuthor"
+);
+
+
+const newWisdom =
+document.getElementById(
+"newWisdom"
 );
 
 
 
-document.getElementById(
-"newQuote"
-)
-.onclick =
+newWisdom.onclick =
 ()=>{
 
 
-let quote =
-inspirations[
+let item =
+wisdoms[
 Math.floor(
 Math.random()
 *
-inspirations.length
+wisdoms.length
 )
 ];
 
 
-inspiration.style.opacity=0;
+
+wisdomText.style.opacity=0;
 
 
-setTimeout(
-()=>{
+
+setTimeout(()=>{
 
 
-inspiration.innerText =
+wisdomText.innerText =
 "“"+
-quote.text+
+item.text+
 "”";
 
 
-author.innerText =
-quote.author;
+wisdomAuthor.innerText =
+item.author;
 
 
-inspiration.style.opacity=1;
+
+wisdomText.style.opacity=1;
 
 
-},
-300
-);
+
+},300);
+
 
 
 };
