@@ -26,6 +26,7 @@
 }
 
 
+
 @media(prefers-color-scheme:dark){
 
 :root{
@@ -82,6 +83,7 @@ padding:20px 12px 35px;
 
 
 
+
 /* HEADER */
 
 
@@ -91,7 +93,7 @@ font-size:28px;
 
 font-weight:800;
 
-letter-spacing:-1.2px;
+letter-spacing:-1px;
 
 }
 
@@ -115,7 +117,125 @@ color:var(--muted);
 
 
 
-/* CARD */
+
+/* TAB BAR */
+
+
+.tabs{
+
+display:flex;
+
+gap:5px;
+
+padding:4px;
+
+background:var(--card);
+
+border:1px solid var(--border);
+
+border-radius:14px;
+
+margin-top:15px;
+
+}
+
+
+
+.tab{
+
+flex:1;
+
+border:none;
+
+background:transparent;
+
+border-radius:10px;
+
+padding:9px 5px;
+
+
+font-size:12px;
+
+color:var(--muted);
+
+cursor:pointer;
+
+}
+
+
+
+.tab.active{
+
+background:white;
+
+color:var(--text);
+
+box-shadow:
+
+0 2px 8px rgba(0,0,0,.08);
+
+}
+
+
+
+@media(prefers-color-scheme:dark){
+
+.tab.active{
+
+background:#333;
+
+}
+
+}
+
+
+
+
+
+/* WIDGETS */
+
+
+.widget{
+
+margin-top:12px;
+
+animation:
+
+fadeIn .25s ease;
+
+}
+
+
+
+.hidden{
+
+display:none;
+
+}
+
+
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(8px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
 
 
 .card{
@@ -126,9 +246,7 @@ border:1px solid var(--border);
 
 border-radius:18px;
 
-padding:16px;
-
-margin-top:12px;
+padding:18px;
 
 }
 
@@ -140,15 +258,14 @@ font-size:14px;
 
 font-weight:700;
 
-margin-bottom:15px;
+margin-bottom:18px;
 
 }
 
 
 
 
-
-/* ENERGIE */
+/* ENERGY */
 
 
 .energy{
@@ -161,9 +278,9 @@ text-align:center;
 
 .energy-ring{
 
-width:125px;
+width:130px;
 
-height:125px;
+height:130px;
 
 border-radius:50%;
 
@@ -194,9 +311,9 @@ transition:.4s;
 
 .energy-inner{
 
-width:98px;
+width:100px;
 
-height:98px;
+height:100px;
 
 border-radius:50%;
 
@@ -208,10 +325,9 @@ display:flex;
 
 flex-direction:column;
 
-align-items:center;
-
 justify-content:center;
 
+align-items:center;
 
 }
 
@@ -219,7 +335,7 @@ justify-content:center;
 
 .energy-score{
 
-font-size:32px;
+font-size:34px;
 
 font-weight:800;
 
@@ -239,11 +355,11 @@ color:var(--muted);
 
 .energy-message{
 
-margin-top:8px;
-
 font-size:13px;
 
 color:var(--muted);
+
+margin-top:10px;
 
 }
 
@@ -253,13 +369,13 @@ color:var(--muted);
 
 width:100%;
 
-margin-top:18px;
+height:7px;
 
-height:6px;
+margin-top:20px;
 
 appearance:none;
 
-border-radius:30px;
+border-radius:20px;
 
 
 background:
@@ -271,7 +387,6 @@ linear-gradient(
 #E07A5F
 );
 
-
 }
 
 
@@ -280,20 +395,16 @@ linear-gradient(
 
 appearance:none;
 
-width:20px;
+width:21px;
 
-height:20px;
+height:21px;
 
 border-radius:50%;
 
 
 background:white;
 
-
-border:
-
-3px solid var(--green);
-
+border:3px solid var(--green);
 
 cursor:pointer;
 
@@ -307,7 +418,7 @@ display:flex;
 
 justify-content:space-between;
 
-font-size:11px;
+font-size:12px;
 
 color:var(--muted);
 
@@ -316,9 +427,7 @@ margin-top:8px;
 }
 
 
-
 </style>
-
 
 </head>
 
@@ -362,7 +471,71 @@ Mercredi 22 juillet
 
 
 
-<!-- ENERGIE FIXE -->
+<!-- NAVIGATION -->
+
+
+<div class="tabs">
+
+
+<button
+
+class="tab active"
+
+id="energyTab"
+
+>
+
+⚡ Énergie
+
+</button>
+
+
+
+<button
+
+class="tab"
+
+id="wisdomTab"
+
+>
+
+✨ Sagesse
+
+</button>
+
+
+
+<button
+
+class="tab"
+
+id="focusTab"
+
+>
+
+🧠 Focus
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ENERGY WIDGET -->
+
+
+<div
+
+class="widget"
+
+id="energyWidget"
+
+>
 
 
 <div class="card">
@@ -376,7 +549,6 @@ Mercredi 22 juillet
 
 
 <div class="energy">
-
 
 
 <div
@@ -432,7 +604,6 @@ id="energyMessage"
 
 
 
-
 <input
 
 type="range"
@@ -454,25 +625,14 @@ class="energy-slider"
 <div class="energy-labels">
 
 
-<span>
+<span>🌙 Repos</span>
 
-🌙
+<span>🌿 Équilibre</span>
 
-</span>
-
-
-<span>
-
-🌿
-
-</span>
+<span>🔥 Forme</span>
 
 
-<span>
-
-🔥
-
-</span>
+</div>
 
 
 </div>
@@ -486,61 +646,32 @@ class="energy-slider"
 
 
 
-
-<!-- ONGLET + CONTENU ARRIVENT PARTIE 2 -->
-
-<!-- ONGLET -->
-
-
-<div class="tabs">
-
-
-<button
-
-class="tab active"
-
-id="wisdomTab"
-
->
-
-✨ Sagesse
-
-</button>
-
-
-
-<button
-
-class="tab"
-
-id="focusTab"
-
->
-
-🧠 Focus
-
-</button>
-
-
-</div>
+<!-- SUITE PARTIE 2 -->
 
 
 
 
-
-<!-- SAGESSE -->
+<!-- WISDOM WIDGET -->
 
 
 <div
 
-class="tab-content"
+class="widget hidden"
 
-id="wisdomContent"
+id="wisdomWidget"
 
 >
 
 
 <div class="card">
+
+
+<div class="card-title">
+
+✨ Sphère de sagesse
+
+</div>
+
 
 
 <div class="wisdom-container">
@@ -600,8 +731,6 @@ Nouvelle inspiration
 </button>
 
 
-</div>
-
 
 </div>
 
@@ -609,25 +738,36 @@ Nouvelle inspiration
 </div>
 
 
+</div>
 
 
 
 
 
 
-<!-- FOCUS -->
+
+
+<!-- FOCUS WIDGET -->
 
 
 <div
 
-class="tab-content hidden"
+class="widget hidden"
 
-id="focusContent"
+id="focusWidget"
 
 >
 
 
 <div class="card">
+
+
+<div class="card-title">
+
+🧠 Focus
+
+</div>
+
 
 
 <div class="focus-container">
@@ -723,97 +863,52 @@ id="focusReset"
 
 
 
-
 <style>
 
 
-/* TABS */
+
+/* BUTTONS */
 
 
-.tabs{
-
-display:flex;
-
-background:var(--card);
-
-border:1px solid var(--border);
-
-border-radius:14px;
-
-padding:4px;
-
-margin-top:12px;
-
-}
-
-
-
-.tab{
-
-flex:1;
+button{
 
 border:none;
 
-background:transparent;
-
-padding:10px;
-
-border-radius:11px;
-
+cursor:pointer;
 
 font-size:13px;
 
-color:var(--muted);
+border-radius:12px;
 
-cursor:pointer;
-
+padding:10px 16px;
 
 }
 
 
 
-.tab.active{
+.primary-button{
 
-background:white;
+background:var(--blue);
+
+color:white;
+
+}
+
+
+
+.secondary-button{
+
+background:var(--border);
 
 color:var(--text);
 
-
-box-shadow:
-
-0 2px 8px rgba(0,0,0,.08);
-
-}
-
-
-
-@media(prefers-color-scheme:dark){
-
-.tab.active{
-
-background:#333;
-
-}
-
 }
 
 
 
 
 
-.hidden{
-
-display:none;
-
-}
-
-
-
-
-
-
-
-/* SPHERE */
+/* SAGESSE */
 
 
 .wisdom-container{
@@ -826,11 +921,13 @@ text-align:center;
 
 .wisdom-sphere{
 
+
 width:120px;
 
 height:120px;
 
-margin:5px auto 20px;
+
+margin:8px auto 20px;
 
 
 border-radius:50%;
@@ -843,12 +940,13 @@ radial-gradient(
 circle at 30% 25%,
 white,
 #f4f4f4,
-#dddddd
+#dedede
 );
 
 
 
 box-shadow:
+
 
 0 0 25px rgba(255,255,255,.9),
 
@@ -863,18 +961,20 @@ animation:
 
 floatSphere 5s infinite ease-in-out;
 
+
 }
 
 
 
 .sphere-light{
 
+
 position:absolute;
 
 
-width:30px;
+width:32px;
 
-height:30px;
+height:32px;
 
 
 top:20px;
@@ -888,7 +988,10 @@ border-radius:50%;
 background:white;
 
 
-filter:blur(4px);
+filter:blur(5px);
+
+
+opacity:.8;
 
 
 }
@@ -896,6 +999,13 @@ filter:blur(4px);
 
 
 @keyframes floatSphere{
+
+
+0%,100%{
+
+transform:translateY(0);
+
+}
 
 
 50%{
@@ -906,8 +1016,6 @@ transform:translateY(-8px);
 
 
 }
-
-
 
 
 
@@ -939,7 +1047,6 @@ color:var(--muted);
 
 
 
-
 /* FOCUS */
 
 
@@ -953,15 +1060,16 @@ text-align:center;
 
 .focus-ring{
 
+
 width:150px;
 
 height:150px;
 
-border-radius:50%;
-
 
 margin:auto;
 
+
+border-radius:50%;
 
 
 display:flex;
@@ -971,12 +1079,18 @@ align-items:center;
 justify-content:center;
 
 
+
 background:
 
 conic-gradient(
-var(--blue) 0deg,
-var(--border) 0deg
+var(--blue)
+0deg,
+var(--border)
+0
 );
+
+
+transition:.4s;
 
 
 }
@@ -985,9 +1099,11 @@ var(--border) 0deg
 
 .focus-inner{
 
+
 width:120px;
 
 height:120px;
+
 
 border-radius:50%;
 
@@ -1008,7 +1124,7 @@ justify-content:center;
 
 .focus-time{
 
-font-size:27px;
+font-size:28px;
 
 font-weight:800;
 
@@ -1030,55 +1146,25 @@ color:var(--muted);
 
 .focus-buttons{
 
+
 display:flex;
 
 justify-content:center;
 
+
 gap:10px;
+
 
 margin-top:18px;
 
-}
-
-
-
-button{
-
-border:none;
-
-cursor:pointer;
-
-border-radius:12px;
-
-padding:10px 15px;
-
-font-size:13px;
-
-}
-
-
-
-.primary-button{
-
-background:var(--blue);
-
-color:white;
-
-}
-
-
-
-.secondary-button{
-
-background:var(--border);
-
-color:var(--text);
 
 }
 
 
 
 </style>
+
+
 
 
 
@@ -1107,55 +1193,85 @@ month:"long"
 
 
 
-// ONGLET NAVIGATION
+// NAVIGATION ENTRE WIDGETS
 
 
-const wisdomTab =
-document.getElementById(
-"wisdomTab"
-);
+const tabs = [
 
+{
+button:
+"energyTab",
 
-const focusTab =
-document.getElementById(
-"focusTab"
-);
+widget:
+"energyWidget"
 
+},
 
-const wisdomContent =
-document.getElementById(
-"wisdomContent"
-);
+{
+button:
+"wisdomTab",
 
+widget:
+"wisdomWidget"
 
-const focusContent =
-document.getElementById(
-"focusContent"
-);
+},
 
+{
+button:
+"focusTab",
 
+widget:
+"focusWidget"
 
-wisdomTab.onclick = ()=>{
+}
 
-
-wisdomTab.classList.add(
-"active"
-);
-
-
-focusTab.classList.remove(
-"active"
-);
+];
 
 
 
-wisdomContent.classList.remove(
+tabs.forEach(item=>{
+
+
+document
+.getElementById(item.button)
+.onclick = ()=>{
+
+
+tabs.forEach(other=>{
+
+
+document
+.getElementById(other.widget)
+.classList.add(
 "hidden"
 );
 
 
-focusContent.classList.add(
+
+document
+.getElementById(other.button)
+.classList.remove(
+"active"
+);
+
+
+
+});
+
+
+
+document
+.getElementById(item.widget)
+.classList.remove(
 "hidden"
+);
+
+
+
+document
+.getElementById(item.button)
+.classList.add(
+"active"
 );
 
 
@@ -1164,32 +1280,7 @@ focusContent.classList.add(
 
 
 
-focusTab.onclick = ()=>{
-
-
-focusTab.classList.add(
-"active"
-);
-
-
-wisdomTab.classList.remove(
-"active"
-);
-
-
-
-focusContent.classList.remove(
-"hidden"
-);
-
-
-wisdomContent.classList.add(
-"hidden"
-);
-
-
-
-};
+});
 
 
 
@@ -1324,6 +1415,7 @@ updateEnergy();
 
 
 
+
 // FOCUS TIMER
 
 
@@ -1341,6 +1433,7 @@ false;
 
 
 
+
 const focusTime =
 document.getElementById(
 "focusTime"
@@ -1351,6 +1444,7 @@ const focusRing =
 document.getElementById(
 "focusRing"
 );
+
 
 
 const focusStart =
@@ -1368,16 +1462,18 @@ document.getElementById(
 
 
 
+
 function updateFocus(){
 
 
-let minutes =
+const minutes =
 Math.floor(
 focusSeconds/60
 );
 
 
-let seconds =
+
+const seconds =
 focusSeconds%60;
 
 
@@ -1394,7 +1490,7 @@ seconds;
 
 
 
-let progress =
+const progress =
 
 (
 (focusTotal-focusSeconds)
@@ -1435,7 +1531,6 @@ focusSeconds--;
 
 updateFocus();
 
-
 }
 
 
@@ -1456,9 +1551,13 @@ focusRunning =
 focusStart.innerText =
 
 focusRunning
+
 ?
+
 "⏸ Pause"
+
 :
+
 "▶ Démarrer";
 
 
@@ -1498,10 +1597,12 @@ updateFocus();
 
 
 
-// CITATIONS
 
 
-const quotes=[
+// CITATIONS SPHERE
+
+
+const quotes = [
 
 
 [
@@ -1529,8 +1630,8 @@ const quotes=[
 
 
 [
-"Le succès est la somme de petits efforts répétés chaque jour.",
-"— Robert Collier"
+"Le voyage de mille kilomètres commence par un premier pas.",
+"— Lao Tseu"
 ]
 
 
@@ -1552,7 +1653,8 @@ document.getElementById(
 
 
 
-document.getElementById(
+document
+.getElementById(
 "newWisdom"
 )
 .onclick = ()=>{
@@ -1578,7 +1680,11 @@ setTimeout(()=>{
 
 
 wisdomText.innerText =
-"“"+quote[0]+"”";
+"“"
++
+quote[0]
++
+"”";
 
 
 wisdomAuthor.innerText =
