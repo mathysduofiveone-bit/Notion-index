@@ -11,7 +11,7 @@
 
 <style>
 
-:root {
+:root{
 
 --text:#37352F;
 --muted:#787774;
@@ -39,8 +39,6 @@
 
 --green:#94B49F;
 
---shadow:rgba(0,0,0,.25);
-
 }
 
 }
@@ -48,7 +46,9 @@
 
 
 *{
+
 box-sizing:border-box;
+
 }
 
 
@@ -67,7 +67,6 @@ BlinkMacSystemFont,
 "Segoe UI",
 sans-serif;
 
-
 color:var(--text);
 
 }
@@ -76,11 +75,11 @@ color:var(--text);
 
 .container{
 
-max-width:520px;
+max-width:450px;
 
 margin:auto;
 
-padding:35px 20px 60px;
+padding:24px 16px 45px;
 
 }
 
@@ -92,11 +91,11 @@ padding:35px 20px 60px;
 
 .title{
 
-font-size:36px;
+font-size:30px;
 
 font-weight:800;
 
-letter-spacing:-1.8px;
+letter-spacing:-1.5px;
 
 }
 
@@ -110,11 +109,11 @@ justify-content:space-between;
 
 align-items:center;
 
-margin-top:12px;
+margin-top:8px;
+
+font-size:14px;
 
 color:var(--muted);
-
-font-size:15px;
 
 }
 
@@ -126,9 +125,10 @@ display:flex;
 
 align-items:center;
 
-gap:6px;
+gap:5px;
 
 }
+
 
 
 
@@ -140,17 +140,16 @@ gap:6px;
 
 background:var(--card);
 
-border-radius:24px;
-
-padding:24px;
-
-margin-top:18px;
-
 border:1px solid var(--border);
 
+border-radius:20px;
+
+padding:18px;
+
+margin-top:14px;
 
 box-shadow:
-0 8px 25px var(--shadow);
+0 6px 18px var(--shadow);
 
 }
 
@@ -158,14 +157,13 @@ box-shadow:
 
 .card-title{
 
-font-size:15px;
+font-size:14px;
 
 font-weight:700;
 
-margin-bottom:25px;
+margin-bottom:18px;
 
 }
-
 
 
 
@@ -183,9 +181,9 @@ text-align:center;
 
 .energy-ring{
 
-width:160px;
+width:135px;
 
-height:160px;
+height:135px;
 
 border-radius:50%;
 
@@ -216,9 +214,9 @@ transition:.4s;
 
 .energy-inner{
 
-width:125px;
+width:105px;
 
-height:125px;
+height:105px;
 
 border-radius:50%;
 
@@ -240,11 +238,9 @@ justify-content:center;
 
 .energy-score{
 
-font-size:42px;
+font-size:34px;
 
 font-weight:800;
-
-letter-spacing:-2px;
 
 }
 
@@ -252,7 +248,7 @@ letter-spacing:-2px;
 
 .energy-max{
 
-font-size:13px;
+font-size:12px;
 
 color:var(--muted);
 
@@ -262,9 +258,9 @@ color:var(--muted);
 
 .energy-message{
 
-margin-top:14px;
+margin-top:10px;
 
-font-size:14px;
+font-size:13px;
 
 color:var(--muted);
 
@@ -273,20 +269,17 @@ color:var(--muted);
 
 
 
-/* SLIDER */
-
-
 .energy-slider{
 
-margin-top:28px;
+margin-top:22px;
 
 width:100%;
 
-height:8px;
+height:7px;
 
 appearance:none;
 
-border-radius:50px;
+border-radius:30px;
 
 
 background:
@@ -298,7 +291,6 @@ linear-gradient(
 #E07A5F
 );
 
-
 }
 
 
@@ -307,9 +299,9 @@ linear-gradient(
 
 appearance:none;
 
-width:26px;
+width:22px;
 
-height:26px;
+height:22px;
 
 border-radius:50%;
 
@@ -319,15 +311,14 @@ background:white;
 
 border:
 
-4px solid var(--green);
-
-
-cursor:pointer;
+3px solid var(--green);
 
 
 box-shadow:
 
-0 3px 10px rgba(0,0,0,.15);
+0 3px 8px rgba(0,0,0,.15);
+
+cursor:pointer;
 
 }
 
@@ -339,9 +330,9 @@ display:flex;
 
 justify-content:space-between;
 
-margin-top:12px;
+margin-top:10px;
 
-font-size:13px;
+font-size:12px;
 
 color:var(--muted);
 
@@ -351,7 +342,6 @@ color:var(--muted);
 
 </style>
 
-
 </head>
 
 
@@ -359,7 +349,6 @@ color:var(--muted);
 
 
 <div class="container">
-
 
 
 <div class="header">
@@ -383,6 +372,7 @@ Mercredi 22 juillet
 </div>
 
 
+
 <div class="weather">
 
 <span>
@@ -391,14 +381,12 @@ Mercredi 22 juillet
 
 </span>
 
-
 <span>
 
 24°C
 
 </span>
 
-
 </div>
 
 
@@ -411,8 +399,7 @@ Mercredi 22 juillet
 
 
 
-
-<!-- ENERGY -->
+<!-- ENERGIE -->
 
 
 <div class="card">
@@ -425,7 +412,6 @@ Mercredi 22 juillet
 </div>
 
 
-
 <div class="energy-center">
 
 
@@ -434,7 +420,6 @@ Mercredi 22 juillet
 class="energy-ring"
 id="energyRing"
 >
-
 
 
 <div class="energy-inner">
@@ -464,7 +449,6 @@ id="energyScore"
 
 
 
-
 <div 
 class="energy-message"
 id="energyMessage"
@@ -486,10 +470,9 @@ max="10"
 
 value="7"
 
-class="energy-slider"
-
 id="energySlider"
 
+class="energy-slider"
 
 >
 
@@ -531,6 +514,84 @@ id="energySlider"
 
 <!-- SUITE PARTIE 2 -->
 
+<!-- SPHERE DE SAGESSE -->
+
+
+<div class="card">
+
+
+<div class="card-title">
+
+✨ Sphère de sagesse
+
+</div>
+
+
+
+<div class="wisdom-container">
+
+
+
+<div class="wisdom-sphere">
+
+
+<div class="sphere-light">
+
+</div>
+
+
+</div>
+
+
+
+
+<div 
+class="wisdom-text"
+id="wisdomText"
+>
+
+"La simplicité est la sophistication suprême."
+
+</div>
+
+
+
+<div 
+class="wisdom-author"
+id="wisdomAuthor"
+>
+
+— Léonard de Vinci
+
+</div>
+
+
+
+
+<button
+
+class="secondary-button"
+
+id="newWisdom"
+
+>
+
+Nouvelle inspiration
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
 <!-- FOCUS -->
 
 
@@ -548,18 +609,25 @@ id="energySlider"
 <div class="focus-container">
 
 
-<div 
+
+<div
+
 class="focus-ring"
+
 id="focusRing"
+
 >
 
 
 <div class="focus-inner">
 
 
-<div 
-id="focusTime"
+<div
+
 class="focus-time"
+
+id="focusTime"
+
 >
 
 25:00
@@ -587,8 +655,11 @@ Session profonde
 
 
 <button
+
 class="primary-button"
+
 id="focusStart"
+
 >
 
 ▶ Démarrer
@@ -598,8 +669,11 @@ id="focusStart"
 
 
 <button
+
 class="secondary-button"
+
 id="focusReset"
+
 >
 
 ↺ Recommencer
@@ -622,80 +696,144 @@ id="focusReset"
 
 
 
-<!-- SPHERE DE SAGESSE -->
-
-
-<div class="card">
-
-
-<div class="card-title">
-
-✨ Sphère de sagesse
-
-</div>
-
-
-
-<div class="wisdom-container">
-
-
-<div class="wisdom-sphere">
-
-
-<div class="sphere-reflection">
-
-</div>
-
-
-</div>
-
-
-
-<div 
-class="wisdom-text"
-id="wisdomText"
->
-
-"La simplicité est la sophistication suprême."
-
-</div>
-
-
-
-<div 
-class="wisdom-author"
-id="wisdomAuthor"
->
-
-— Léonard de Vinci
-
-</div>
-
-
-
-<button
-
-class="secondary-button"
-
-id="newWisdom"
-
->
-
-Nouvelle inspiration
-
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-
 
 <style>
+
+
+/* SPHERE */
+
+
+.wisdom-container{
+
+text-align:center;
+
+}
+
+
+
+.wisdom-sphere{
+
+
+width:120px;
+
+height:120px;
+
+
+margin:8px auto 22px;
+
+
+border-radius:50%;
+
+
+
+background:
+
+radial-gradient(
+circle at 30% 25%,
+white,
+rgba(255,255,255,.95),
+#ededed
+);
+
+
+
+box-shadow:
+
+0 0 25px rgba(255,255,255,.9),
+
+0 12px 25px rgba(0,0,0,.08);
+
+
+
+position:relative;
+
+
+animation:
+
+floatSphere 5s ease-in-out infinite;
+
+
+}
+
+
+
+.sphere-light{
+
+
+position:absolute;
+
+
+width:32px;
+
+height:32px;
+
+
+top:20px;
+
+left:28px;
+
+
+border-radius:50%;
+
+
+background:white;
+
+
+opacity:.8;
+
+
+filter:blur(4px);
+
+
+}
+
+
+
+@keyframes floatSphere{
+
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+
+}
+
+
+
+.wisdom-text{
+
+font-size:14px;
+
+line-height:1.5;
+
+}
+
+
+
+.wisdom-author{
+
+margin-top:8px;
+
+margin-bottom:16px;
+
+font-size:12px;
+
+color:var(--muted);
+
+}
+
+
+
 
 
 /* FOCUS */
@@ -711,9 +849,9 @@ text-align:center;
 
 .focus-ring{
 
-width:180px;
+width:155px;
 
-height:180px;
+height:155px;
 
 border-radius:50%;
 
@@ -721,11 +859,13 @@ border-radius:50%;
 margin:auto;
 
 
+
 display:flex;
 
 align-items:center;
 
 justify-content:center;
+
 
 
 background:
@@ -736,6 +876,7 @@ var(--border) 0deg
 );
 
 
+
 transition:.4s;
 
 }
@@ -744,9 +885,9 @@ transition:.4s;
 
 .focus-inner{
 
-width:145px;
+width:125px;
 
-height:145px;
+height:125px;
 
 border-radius:50%;
 
@@ -767,7 +908,7 @@ justify-content:center;
 
 .focus-time{
 
-font-size:34px;
+font-size:28px;
 
 font-weight:800;
 
@@ -777,11 +918,11 @@ font-weight:800;
 
 .focus-label{
 
-margin-top:18px;
+margin-top:14px;
+
+font-size:13px;
 
 color:var(--muted);
-
-font-size:14px;
 
 }
 
@@ -793,9 +934,9 @@ display:flex;
 
 justify-content:center;
 
-gap:12px;
+gap:10px;
 
-margin-top:22px;
+margin-top:18px;
 
 }
 
@@ -805,11 +946,11 @@ button{
 
 border:none;
 
-border-radius:15px;
+border-radius:14px;
 
-padding:13px 20px;
+padding:11px 16px;
 
-font-size:14px;
+font-size:13px;
 
 cursor:pointer;
 
@@ -837,147 +978,6 @@ color:var(--text);
 
 
 
-
-
-
-/* SPHERE */
-
-
-.wisdom-container{
-
-text-align:center;
-
-}
-
-
-
-.wisdom-sphere{
-
-
-width:145px;
-
-height:145px;
-
-
-margin:15px auto 30px;
-
-
-border-radius:50%;
-
-
-position:relative;
-
-
-
-background:
-
-radial-gradient(
-circle at 30% 25%,
-white 0%,
-rgba(255,255,255,.9) 20%,
-rgba(245,245,245,.8) 55%,
-rgba(230,230,230,.9) 100%
-);
-
-
-
-box-shadow:
-
-
-0 0 35px rgba(255,255,255,.9),
-
-0 15px 35px rgba(0,0,0,.08);
-
-
-
-animation:
-
-sphereMove 5s ease-in-out infinite;
-
-
-
-}
-
-
-
-.sphere-reflection{
-
-
-position:absolute;
-
-
-width:35px;
-
-height:35px;
-
-
-top:25px;
-
-left:35px;
-
-
-border-radius:50%;
-
-
-background:white;
-
-
-opacity:.7;
-
-
-filter:blur(5px);
-
-
-}
-
-
-
-@keyframes sphereMove{
-
-
-0%,100%{
-
-transform:translateY(0);
-
-}
-
-
-
-50%{
-
-transform:translateY(-12px);
-
-}
-
-
-}
-
-
-
-.wisdom-text{
-
-font-size:16px;
-
-line-height:1.6;
-
-}
-
-
-
-.wisdom-author{
-
-margin-top:12px;
-
-margin-bottom:22px;
-
-font-size:13px;
-
-color:var(--muted);
-
-}
-
-
-
 </style>
 
 
@@ -987,7 +987,7 @@ color:var(--muted);
 <script>
 
 
-// DATE
+// DATE AUTOMATIQUE
 
 
 document.getElementById("date").innerText =
@@ -1005,39 +1005,31 @@ month:"long"
 
 
 
-
 // ENERGIE
 
 
 const energySlider =
-document.getElementById(
-"energySlider"
-);
+document.getElementById("energySlider");
 
 
 const energyScore =
-document.getElementById(
-"energyScore"
-);
+document.getElementById("energyScore");
 
 
 const energyRing =
-document.getElementById(
-"energyRing"
-);
+document.getElementById("energyRing");
 
 
 const energyMessage =
-document.getElementById(
-"energyMessage"
-);
+document.getElementById("energyMessage");
+
 
 
 
 function updateEnergy(){
 
 
-let value =
+const value =
 Number(
 energySlider.value
 );
@@ -1049,7 +1041,7 @@ value;
 
 
 
-let percent =
+const progress =
 value * 10;
 
 
@@ -1059,7 +1051,7 @@ energyRing.style.background =
 `
 conic-gradient(
 var(--green)
-${percent}%,
+${progress}%,
 var(--border)
 0
 )
@@ -1123,9 +1115,7 @@ updateEnergy
 );
 
 
-
 updateEnergy();
-
 
 
 
@@ -1136,7 +1126,7 @@ updateEnergy();
 // FOCUS TIMER
 
 
-let focusTotal =
+const focusTotal =
 25 * 60;
 
 
@@ -1155,7 +1145,6 @@ document.getElementById(
 );
 
 
-
 const focusRing =
 document.getElementById(
 "focusRing"
@@ -1167,7 +1156,6 @@ const focusStart =
 document.getElementById(
 "focusStart"
 );
-
 
 
 const focusReset =
@@ -1182,13 +1170,14 @@ document.getElementById(
 function updateFocus(){
 
 
-let minutes =
+const minutes =
 Math.floor(
 focusSeconds / 60
 );
 
 
-let seconds =
+
+const seconds =
 focusSeconds % 60;
 
 
@@ -1205,10 +1194,10 @@ seconds;
 
 
 
-let progress =
+const progress =
 
 (
-(focusTotal - focusSeconds)
+(focusTotal-focusSeconds)
 /
 focusTotal
 )
@@ -1246,7 +1235,6 @@ focusSeconds--;
 
 updateFocus();
 
-
 }
 
 
@@ -1268,9 +1256,13 @@ focusRunning =
 focusStart.innerText =
 
 focusRunning
+
 ?
+
 "⏸ Pause"
+
 :
+
 "▶ Démarrer";
 
 
@@ -1285,22 +1277,18 @@ focusReset.onclick =
 ()=>{
 
 
-focusRunning =
-false;
+focusRunning=false;
 
 
-focusSeconds =
+focusSeconds=
 focusTotal;
-
 
 
 focusStart.innerText =
 "▶ Démarrer";
 
 
-
 updateFocus();
-
 
 
 };
@@ -1309,6 +1297,8 @@ updateFocus();
 
 
 updateFocus();
+
+
 
 
 
@@ -1336,10 +1326,10 @@ author:
 {
 
 text:
-"Ce n'est pas la montagne que nous conquérons, mais nous-mêmes.",
+"La discipline est le pont entre les objectifs et les accomplissements.",
 
 author:
-"— Edmund Hillary"
+"— Jim Rohn"
 
 },
 
@@ -1347,10 +1337,10 @@ author:
 {
 
 text:
-"La discipline est le pont entre les objectifs et les accomplissements.",
+"Ce n'est pas la montagne que nous conquérons, mais nous-mêmes.",
 
 author:
-"— Jim Rohn"
+"— Edmund Hillary"
 
 },
 
@@ -1402,7 +1392,7 @@ document.getElementById(
 ()=>{
 
 
-let quote =
+const quote =
 
 wisdomList[
 Math.floor(
@@ -1414,7 +1404,7 @@ wisdomList.length
 
 
 
-wisdomText.style.opacity = 0;
+wisdomText.style.opacity=0;
 
 
 
@@ -1434,15 +1424,15 @@ quote.author;
 
 
 
-wisdomText.style.opacity = 1;
+wisdomText.style.opacity=1;
 
 
 
 },300);
 
 
-
 };
+
 
 
 
